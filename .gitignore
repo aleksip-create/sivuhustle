@@ -1,0 +1,23 @@
+# Supabase local
+supabase/.temp/
+supabase/.branches/
+
+# Secrets — älä koskaan commitoi
+.env
+.env.*
+*.pem
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Local terminals / debug
+terminals/

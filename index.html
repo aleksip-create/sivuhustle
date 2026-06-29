@@ -1,0 +1,2329 @@
+﻿<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RS9RZ94FCY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-RS9RZ94FCY');
+    </script>
+    <!-- Meta Pixel Code (virallinen muoto — Meta tunnistaa tämän) -->
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1552195963174216');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" alt=""
+    src="https://www.facebook.com/tr?id=1552195963174216&amp;ev=PageView&amp;noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+    <script src="js/config.js"></script>
+    <script src="js/attribution.js"></script>
+    <script src="js/meta-pixel.js"></script>
+
+    <title>SivuHustle.fi • Todistetut tavat ansaita sivutuloa verkossa 2026</title>
+    <meta name="description" content="Suomen sivuhustle-sivusto. Ilmainen tulolaskuri + 8 käytännön opasta suomeksi. Aloita affiliate-markkinointi, digituotteet tai blogi ja rakenna sivutulo askel askeleelta.">
+    <meta name="keywords" content="sivuhustle, passiivinen tulo, affiliate markkinointi, digitaaliset tuotteet, tienaa rahaa netissä, sivubisnes Suomi">
+    <link rel="canonical" href="https://www.sivuhustle.fi/">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="SivuHustle.fi – Rakenna passiivinen sivutulo verkossa">
+    <meta property="og:description" content="Todistetut menetelmät suomalaisille. Ilmainen laskuri, oppaat ja Pro-jäsenyys. Aloita ilmaiseksi tänään.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.sivuhustle.fi/">
+    <meta property="og:locale" content="fi_FI">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230f172a' rx='20' width='100' height='100'/><path fill='%2310b981' d='M20 70 L35 45 L50 55 L65 30 L80 70 Z'/></svg>">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <!-- Stripe.js for future Checkout integration -->
+    <script src="https://js.stripe.com/v3/"></script>
+    
+    <!-- Supabase JS Client -->
+    <script src="js/site.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+            font-weight: 600;
+        }
+
+        .section-header {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        .money-gradient {
+            background: linear-gradient(90deg, #0f172a, #1e2937);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hustle-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hustle-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .stat-number {
+            font-feature-settings: "ss02";
+        }
+
+        .pro-badge {
+            background: linear-gradient(to right, #eab308, #f59e0b);
+            color: white;
+            font-size: 0.75rem;
+            padding: 1px 10px;
+            border-radius: 9999px;
+            font-weight: 700;
+        }
+
+        .modern-shadow {
+            box-shadow: 0 10px 15px -3px rgb(15 23 42 / 0.1), 0 4px 6px -4px rgb(15 23 42 / 0.1);
+        }
+
+        .guide-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .guide-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgb(15 23 42 / 0.1);
+        }
+
+        .metric {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .nav-active {
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        .trust-bar {
+            font-feature-settings: "ss02";
+        }
+
+        .value-prop {
+            transition: all 0.2s ease;
+        }
+        
+        .premium-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .hustle-card, .guide-card, .value-prop { transition: none; }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 200px;
+            opacity: 1;
+        }
+
+        .faq-item.open .faq-chevron {
+            transform: rotate(180deg);
+        }
+
+        .faq-chevron {
+            transition: transform 0.25s ease;
+        }
+
+        :focus-visible {
+            outline: 2px solid #10b981;
+            outline-offset: 2px;
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        .star-rating {
+            color: #f59e0b;
+            letter-spacing: 0.05em;
+        }
+
+        .testimonial-card {
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
+        }
+
+        .testimonial-card:hover {
+            box-shadow: 0 10px 25px -5px rgb(15 23 42 / 0.08);
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "SivuHustle.fi",
+        "url": "https://www.sivuhustle.fi/",
+        "description": "Suomen sivuhustle-sivusto. Ilmainen tulolaskuri ja käytännön oppaat passiivisen tulon rakentamiseen.",
+        "inLanguage": "fi"
+    }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-900" data-auth-site="true">
+    <a href="#sisalto" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-white focus:rounded-xl focus:shadow-lg focus:text-sm focus:font-semibold">Siirry sisältöön</a>
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-x-3" title="Etusivu">
+                    <div class="w-11 h-11 bg-slate-900 rounded-2xl flex items-center justify-center">
+                        <i class="fa-solid fa-chart-line text-white text-3xl" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <span class="font-display text-3xl font-semibold tracking-tighter">SivuHustle</span>
+                        <span class="text-emerald-600 font-bold text-xl">.fi</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+                    <a href="#menetelmat" data-nav="menetelmat" class="nav-link hover:text-slate-600 transition-colors">Menetelmät</a>
+                    <a href="#laskuri" data-nav="laskuri" class="nav-link hover:text-slate-600 transition-colors">Laskuri</a>
+                    <a href="#tyokalut" data-nav="tyokalut" class="nav-link hover:text-slate-600 transition-colors">Työkalut</a>
+                    <a href="#artikkelit" data-nav="artikkelit" class="nav-link hover:text-slate-600 transition-colors">Oppaat</a>
+                    <a href="#hinnat" data-nav="hinnat" class="nav-link hover:text-slate-600 transition-colors">Hinnat</a>
+                </div>
+
+                <div class="flex items-center gap-x-4">
+                    <!-- Auth buttons - will be updated by JS -->
+                    <div id="auth-buttons" class="hidden md:flex items-center gap-x-3">
+                        <button onclick="showLoginModal()" 
+                                class="px-5 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-100 rounded-2xl transition-colors">
+                            Kirjaudu
+                        </button>
+                        <button onclick="showRegisterModal()" 
+                                class="px-5 py-2.5 text-sm font-semibold bg-slate-900 text-white hover:bg-black rounded-2xl transition-colors">
+                            Rekisteröidy
+                        </button>
+                    </div>
+                    
+                    <!-- User menu when logged in -->
+                    <div id="user-menu" class="hidden items-center gap-x-3">
+                        <a href="jasenet.html" id="member-area-link" class="hidden text-xs font-semibold text-emerald-600 hover:text-emerald-700">Jäsenalue</a>
+                        <div id="user-info" class="flex items-center gap-x-2 text-sm">
+                            <span id="user-email-display" class="font-medium text-slate-700"></span>
+                            <span id="pro-badge" class="hidden px-2 py-0.5 text-[10px] bg-emerald-100 text-emerald-700 rounded-full font-bold">PRO</span>
+                        </div>
+                        <button onclick="logout()"
+                                class="px-4 py-2 text-xs font-semibold border border-slate-300 rounded-xl hover:bg-slate-50">
+                            Kirjaudu ulos
+                        </button>
+                    </div>
+                    
+                    <button onclick="scrollToCalculator()"
+                            class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-3xl transition-all active:scale-[0.985]">
+                        Kokeile laskuria
+                    </button>
+                    
+                    <!-- Mobile menu -->
+                    <button class="md:hidden w-10 h-10 flex items-center justify-center text-slate-600"
+                            onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t bg-white px-6 py-4">
+            <div class="flex flex-col gap-y-3 text-sm font-medium">
+                <a href="#menetelmat" class="py-1.5">Menetelmät</a>
+                <a href="#laskuri" class="py-1.5">Laskuri</a>
+                <a href="#tyokalut" class="py-1.5">Työkalut</a>
+                <a href="#artikkelit" class="py-1.5">Oppaat</a>
+                <a href="#hinnat" class="py-1.5">Hinnat</a>
+                <div class="pt-3 border-t flex gap-x-3" id="mobile-auth">
+                    <button onclick="showLoginModal()" class="flex-1 py-3 text-center border rounded-2xl font-semibold">Kirjaudu</button>
+                    <button onclick="showRegisterModal()" class="flex-1 py-3 text-center border rounded-2xl font-semibold">Rekisteröidy</button>
+                </div>
+                <div class="pt-3 border-t flex gap-x-3 hidden" id="mobile-user">
+                    <button onclick="logout()" class="flex-1 py-3 text-center border rounded-2xl font-semibold">Kirjaudu ulos</button>
+                    <button onclick="scrollToCalculator()" class="flex-1 py-3 bg-emerald-600 text-white rounded-2xl font-semibold">Laskuri</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header id="sisalto" class="max-w-screen-xl mx-auto px-6 pt-16 pb-20 fade-in">
+        <div class="grid md:grid-cols-12 gap-x-8 items-center">
+            <div class="md:col-span-7">
+                <div class="inline-flex items-center gap-x-2 bg-emerald-100 text-emerald-700 px-4 h-9 rounded-3xl text-sm font-semibold mb-6">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span><strong>8 ilmaista opasta</strong> + tulolaskuri suomeksi</span>
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl md:text-7xl leading-[1.05] font-semibold tracking-tighter">
+                    Rakenna oma<br>
+                    <span class="money-gradient">passiivinen tulosi</span><br>
+                    verkossa.
+                </h1>
+                
+                <p class="mt-6 max-w-lg text-xl text-slate-600">
+                    Todistetut menetelmät + ilmainen tulolaskuri. 
+                    Aloita tänään ja näe ensimmäiset konkreettiset tulot jo 4–8 viikossa.
+                </p>
+                
+                <div class="mt-8 flex flex-wrap gap-4">
+                    <button onclick="scrollToCalculator()" 
+                            class="px-8 h-14 bg-slate-900 hover:bg-black transition-all text-white font-semibold text-lg rounded-3xl flex items-center gap-x-3 active:scale-[0.985]">
+                        <span>Aloita ilmaiseksi</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    
+                    <button id="hero-members-btn" onclick="document.getElementById('hinnat').scrollIntoView({ behavior: 'smooth' })" 
+                            class="px-8 h-14 border border-slate-300 hover:bg-white font-semibold text-lg rounded-3xl flex items-center gap-x-2 transition-colors">
+                        <span id="hero-members-label">Näytä jäsenyydet</span>
+                    </button>
+                </div>
+                
+                <div class="mt-8 flex items-center gap-x-6 text-sm flex-wrap">
+                    <div class="flex -space-x-2">
+                        <div class="w-8 h-8 border-2 border-white rounded-full overflow-hidden shadow-sm"><img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Laura" width="32" height="32" class="w-full h-full object-cover" loading="lazy"></div>
+                        <div class="w-8 h-8 border-2 border-white rounded-full overflow-hidden shadow-sm"><img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Mikko" width="32" height="32" class="w-full h-full object-cover" loading="lazy"></div>
+                        <div class="w-8 h-8 border-2 border-white rounded-full overflow-hidden shadow-sm"><img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Sari" width="32" height="32" class="w-full h-full object-cover" loading="lazy"></div>
+                    </div>
+                    <div class="text-slate-500">
+                        <span class="star-rating text-xs" aria-hidden="true"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                        <span class="font-semibold text-slate-700 ml-1">4.9/5</span>
+                        <span class="text-slate-400"> · Pro-jäsenten palaute</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hero visual -->
+            <div class="md:col-span-5 mt-12 md:mt-0">
+                <div class="bg-white rounded-3xl p-2 shadow-xl border border-slate-100 modern-shadow">
+                    <div class="bg-slate-900 rounded-[20px] p-6 text-white">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="text-emerald-400 text-sm font-medium">TÄNÄ KUUKAUTENA</div>
+                                <div class="text-5xl font-semibold tabular-nums mt-1">3 842 €</div>
+                                <div class="text-emerald-400 flex items-center gap-x-1 text-sm mt-1">
+                                    <i class="fa-solid fa-arrow-trend-up"></i>
+                                    <span>+42 % edelliseen kuukauteen</span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-xs opacity-60">PASSIIVISTA</div>
+                                <div class="font-mono text-2xl font-semibold">87%</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 pt-6 border-t border-white/20 text-sm">
+                            <div class="flex justify-between text-xs opacity-70 mb-2">
+                                <div>AFFILIATE</div>
+                                <div class="font-mono">1 940 €</div>
+                            </div>
+                            <div class="flex justify-between text-xs opacity-70 mb-2">
+                                <div>DIGITUOTTEET</div>
+                                <div class="font-mono">1 420 €</div>
+                            </div>
+                            <div class="flex justify-between text-xs opacity-70">
+                                <div>MAINOKSET + MUUT</div>
+                                <div class="font-mono">482 €</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Trust / Stats bar -->
+    <div class="border-y bg-white">
+        <div class="max-w-screen-xl mx-auto px-6 py-5">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-y-6 text-center trust-bar">
+                <div>
+                    <div class="text-3xl font-semibold tabular-nums">8</div>
+                    <div class="text-xs tracking-widest text-slate-500 mt-0.5">ILMAISTA OPASTA</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-semibold tabular-nums">3</div>
+                    <div class="text-xs tracking-widest text-slate-500 mt-0.5">PRO-OPASTA + MALLIT</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-semibold tabular-nums">1</div>
+                    <div class="text-xs tracking-widest text-slate-500 mt-0.5">ILMAINEN TULOLASKURI</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-semibold tabular-nums">100%</div>
+                    <div class="text-xs tracking-widest text-slate-500 mt-0.5">SUOMEKSI</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menetelmät -->
+    <section id="menetelmat" class="max-w-screen-xl mx-auto px-6 pt-20 pb-12">
+        <div class="flex justify-between items-end mb-9">
+            <div>
+                <div class="uppercase tracking-[2px] text-xs font-semibold text-emerald-600">4 TODISTETTUA TAPAA</div>
+                <h2 class="section-header tracking-tighter">Valitse oma polkusi</h2>
+            </div>
+            <a href="#laskuri" class="hidden md:flex items-center text-sm font-semibold text-emerald-700 hover:text-emerald-800">
+                Kokeile laskurilla <i class="fa-solid fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            <!-- Card 1: Affiliate -->
+            <div class="hustle-card bg-white border border-slate-200 rounded-3xl p-6 group">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-handshake text-3xl"></i>
+                </div>
+                <h3 class="font-semibold text-2xl tracking-tight">Affiliate-markkinointi</h3>
+                <p class="mt-3 text-slate-600 text-[15px]">Suosittele tuotteita ja palveluita omilla kanavillasi. Ansaitse 5–45 % komissiota jokaisesta myynnistä ilman omaa tuotetta.</p>
+                
+                <div class="mt-6 pt-6 border-t flex items-baseline justify-between">
+                    <div>
+                        <div class="text-xs text-slate-500">Tyypillinen tulo</div>
+                        <div class="text-2xl font-semibold tabular-nums">800–6 500 €</div>
+                        <div class="text-xs text-emerald-600">/ kk</div>
+                    </div>
+                    <div class="text-right">
+                        <span class="inline-block text-xs font-bold bg-emerald-100 text-emerald-700 px-3 py-1 rounded-2xl">Helppo aloittaa</span>
+                    </div>
+                </div>
+                
+                <button onclick="selectMethodAndScroll('affiliate')" 
+                        class="mt-5 w-full py-3 text-sm font-semibold border border-emerald-200 hover:bg-emerald-50 text-emerald-700 rounded-2xl transition-colors">
+                    Valitse tämä menetelmä
+                </button>
+            </div>
+            
+            <!-- Card 2: Digital products -->
+            <div class="hustle-card bg-white border border-slate-200 rounded-3xl p-6 group">
+                <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-download text-3xl"></i>
+                </div>
+                <h3 class="font-semibold text-2xl tracking-tight">Digitaaliset tuotteet</h3>
+                <p class="mt-3 text-slate-600 text-[15px]">Myy e-kirjoja, kursseja, pohjia, Canva-templateja tai reseptejä. Luo kerran, myy tuhansia kertoja.</p>
+                
+                <div class="mt-6 pt-6 border-t flex items-baseline justify-between">
+                    <div>
+                        <div class="text-xs text-slate-500">Tyypillinen tulo</div>
+                        <div class="text-2xl font-semibold tabular-nums">1 200–9 000 €</div>
+                        <div class="text-xs text-emerald-600">/ kk</div>
+                    </div>
+                    <div class="text-right">
+                        <span class="inline-block text-xs font-bold bg-amber-100 text-amber-700 px-3 py-1 rounded-2xl">Korkea marginaali</span>
+                    </div>
+                </div>
+                
+                <button onclick="selectMethodAndScroll('digital')" 
+                        class="mt-5 w-full py-3 text-sm font-semibold border border-amber-200 hover:bg-amber-50 text-amber-700 rounded-2xl transition-colors">
+                    Valitse tämä menetelmä
+                </button>
+            </div>
+            
+            <!-- Card 3: Content + Ads -->
+            <div class="hustle-card bg-white border border-slate-200 rounded-3xl p-6 group">
+                <div class="w-12 h-12 bg-sky-100 text-sky-600 rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-newspaper text-3xl"></i>
+                </div>
+                <h3 class="font-semibold text-2xl tracking-tight">Sisältö + mainostulot</h3>
+                <p class="mt-3 text-slate-600 text-[15px]">Blogi, YouTube, TikTok tai Instagram. Ansaitse mainoksilla, sponsoroinneilla ja affiliate-linkeillä.</p>
+                
+                <div class="mt-6 pt-6 border-t flex items-baseline justify-between">
+                    <div>
+                        <div class="text-xs text-slate-500">Tyypillinen tulo</div>
+                        <div class="text-2xl font-semibold tabular-nums">400–4 800 €</div>
+                        <div class="text-xs text-emerald-600">/ kk</div>
+                    </div>
+                    <div class="text-right">
+                        <span class="inline-block text-xs font-bold bg-sky-100 text-sky-700 px-3 py-1 rounded-2xl">Passiivinen</span>
+                    </div>
+                </div>
+                
+                <button onclick="selectMethodAndScroll('content')" 
+                        class="mt-5 w-full py-3 text-sm font-semibold border border-sky-200 hover:bg-sky-50 text-sky-700 rounded-2xl transition-colors">
+                    Valitse tämä menetelmä
+                </button>
+            </div>
+            
+            <!-- Card 4: Own tool / SaaS -->
+            <div class="hustle-card bg-white border border-slate-200 rounded-3xl p-6 group relative overflow-hidden">
+                <div class="absolute top-5 right-5">
+                    <span class="pro-badge text-[10px] px-2.5 py-px">SUOSITELTU</span>
+                </div>
+                <div class="w-12 h-12 bg-violet-100 text-violet-600 rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-cogs text-3xl"></i>
+                </div>
+                <h3 class="font-semibold text-2xl tracking-tight">Oma työkalu / SaaS</h3>
+                <p class="mt-3 text-slate-600 text-[15px]">Rakenna pieni verkkotyökalu ja veloita kuukausimaksua. Korkein skaalautuvuus.</p>
+                
+                <div class="mt-6 pt-6 border-t flex items-baseline justify-between">
+                    <div>
+                        <div class="text-xs text-slate-500">Tyypillinen tulo</div>
+                        <div class="text-2xl font-semibold tabular-nums">2 500–15 000 €</div>
+                        <div class="text-xs text-emerald-600">/ kk</div>
+                    </div>
+                    <div class="text-right">
+                        <span class="inline-block text-xs font-bold bg-violet-100 text-violet-700 px-3 py-1 rounded-2xl">Skaalautuva</span>
+                    </div>
+                </div>
+                
+                <button onclick="selectMethodAndScroll('saas')" 
+                        class="mt-5 w-full py-3 text-sm font-semibold border border-violet-200 hover:bg-violet-50 text-violet-700 rounded-2xl transition-colors">
+                    Valitse tämä menetelmä
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommended Tools - Affiliate monetization -->
+    <section id="tyokalut" class="max-w-screen-xl mx-auto px-6 pb-14">
+        <div class="flex items-end justify-between mb-6">
+            <div>
+                <div class="uppercase text-xs tracking-widest font-semibold text-emerald-600">SUOSITELLUT TYÖKALUT</div>
+                <h3 class="text-2xl font-semibold tracking-tight mt-1">Näillä työkaluilla suomalaiset tienaavat eniten</h3>
+            </div>
+            <span class="hidden md:block text-xs text-slate-500">Affiliate-linkkejä • SivuHustle.fi saa komission</span>
+        </div>
+        
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <a href="https://gumroad.com/" onclick="trackAffiliateClick(event, 'gumroad')" rel="sponsored noopener" class="group flex items-center gap-4 border border-slate-200 bg-white rounded-3xl p-5 hover:border-emerald-200 transition-colors">
+                <div class="w-11 h-11 bg-orange-100 text-orange-600 flex items-center justify-center rounded-2xl flex-shrink-0">
+                    <i class="fa-solid fa-store text-xl"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="font-semibold group-hover:text-emerald-600">Gumroad</div>
+                    <div class="text-sm text-slate-500">Myy digituotteita 8,5 % provisiolla</div>
+                    <div class="text-xs text-emerald-600 mt-0.5 font-medium">Suosituin suomalaisten keskuudessa</div>
+                </div>
+            </a>
+            
+            <a href="https://www.verkkokauppa.com/" onclick="trackAffiliateClick(event, 'verkkokauppa')" rel="sponsored noopener" class="group flex items-center gap-4 border border-slate-200 bg-white rounded-3xl p-5 hover:border-emerald-200 transition-colors">
+                <div class="w-11 h-11 bg-blue-100 text-blue-600 flex items-center justify-center rounded-2xl flex-shrink-0">
+                    <i class="fa-solid fa-shopping-cart text-xl"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="font-semibold group-hover:text-emerald-600">Verkkokauppa.com</div>
+                    <div class="text-sm text-slate-500">5–15 % komissio elektroniikasta &amp; kodista</div>
+                </div>
+            </a>
+            
+            <a href="https://www.booking.com/" onclick="trackAffiliateClick(event, 'booking')" rel="sponsored noopener" class="group flex items-center gap-4 border border-slate-200 bg-white rounded-3xl p-5 hover:border-emerald-200 transition-colors">
+                <div class="w-11 h-11 bg-sky-100 text-sky-600 flex items-center justify-center rounded-2xl flex-shrink-0">
+                    <i class="fa-solid fa-plane text-xl"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="font-semibold group-hover:text-emerald-600">Booking.com Affiliate</div>
+                    <div class="text-sm text-slate-500">Matkailu &amp; majoitus – korkeat komissiot</div>
+                </div>
+            </a>
+            
+            <a href="https://www.canva.com/pro/" onclick="trackAffiliateClick(event, 'canva')" rel="sponsored noopener" class="group flex items-center gap-4 border border-slate-200 bg-white rounded-3xl p-5 hover:border-emerald-200 transition-colors">
+                <div class="w-11 h-11 bg-purple-100 text-purple-600 flex items-center justify-center rounded-2xl flex-shrink-0">
+                    <i class="fa-solid fa-palette text-xl"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="font-semibold group-hover:text-emerald-600">Canva Pro</div>
+                    <div class="text-sm text-slate-500">Luo myytäviä pohjia nopeasti</div>
+                </div>
+            </a>
+
+            <a href="https://www.hostinger.fi/" onclick="trackAffiliateClick(event, 'hostinger')" rel="sponsored noopener" class="group flex items-center gap-4 border border-slate-200 bg-white rounded-3xl p-5 hover:border-emerald-200 transition-colors">
+                <div class="w-11 h-11 bg-indigo-100 text-indigo-600 flex items-center justify-center rounded-2xl flex-shrink-0">
+                    <i class="fa-solid fa-server text-xl"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="font-semibold group-hover:text-emerald-600">Hostinger</div>
+                    <div class="text-sm text-slate-500">Edullinen hosting + WordPress aloittelijalle</div>
+                </div>
+            </a>
+
+            <a href="https://www.mailerlite.com/" onclick="trackAffiliateClick(event, 'mailerlite')" rel="sponsored noopener" class="group flex items-center gap-4 border border-slate-200 bg-white rounded-3xl p-5 hover:border-emerald-200 transition-colors">
+                <div class="w-11 h-11 bg-rose-100 text-rose-600 flex items-center justify-center rounded-2xl flex-shrink-0">
+                    <i class="fa-solid fa-envelope text-xl"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="font-semibold group-hover:text-emerald-600">MailerLite</div>
+                    <div class="text-sm text-slate-500">Sähköpostilista ja automaatiot ilmaiseksi alkuun</div>
+                </div>
+            </a>
+        </div>
+        <div class="text-center text-xs text-slate-400 mt-3">Kaikki linkit ovat affiliate-linkkejä. Tuet sivuston ylläpitoa ostamalla näiden kautta.</div>
+    </section>
+
+    <!-- Laskuri -->
+    <section id="laskuri" class="bg-white border-y py-16">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <div class="inline px-4 py-1.5 rounded-3xl bg-emerald-100 text-emerald-700 text-xs font-bold tracking-wider">ILMAINEN TYÖKALU • EI REKISTERÖITYMISTÄ</div>
+                <h2 class="section-header tracking-tighter mt-3">Arvioi realistinen potentiaalisi</h2>
+                <p class="text-slate-600 mt-3 max-w-md mx-auto">Laskuri perustuu yli 200 suomalaisen sivuhustlesta kerättyihin keskiarvoihin.</p>
+            </div>
+            
+            <div class="max-w-5xl mx-auto">
+                <div class="grid lg:grid-cols-12 gap-8">
+                    
+                    <!-- Inputs -->
+                    <div class="lg:col-span-5 bg-slate-50 border border-slate-200 rounded-3xl p-8">
+                        <div class="mb-6">
+                            <label class="block text-xs font-bold tracking-widest text-slate-500 mb-2">VALITSE MENETELMÄ</label>
+                            <select id="method-select" onchange="updateMethodUI()" 
+                                    class="w-full px-4 h-12 border border-slate-300 bg-white rounded-2xl text-base focus:border-slate-400">
+                                <option value="affiliate">Affiliate-markkinointi</option>
+                                <option value="digital">Digitaaliset tuotteet</option>
+                                <option value="content">Sisältö + mainostulot</option>
+                                <option value="saas">Oma työkalu / SaaS</option>
+                            </select>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="text-sm font-semibold">Kuukausittainen kävijämäärä / näkyvyys</label>
+                                    <span id="visitors-value" class="font-mono text-emerald-700 font-semibold">12 500</span>
+                                </div>
+                                <input type="range" id="visitors" min="500" max="250000" step="500" value="12500" 
+                                       oninput="updateCalculator()" class="w-full accent-emerald-600">
+                                <div class="flex justify-between text-[10px] text-slate-400 mt-0.5">
+                                    <div>500</div><div>250 000</div>
+                                </div>
+                            </div>
+                            
+                            <div id="rpm-field">
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="text-sm font-semibold">Tulot per 1 000 kävijää (RPM)</label>
+                                    <span id="rpm-value" class="font-mono text-emerald-700 font-semibold">18 €</span>
+                                </div>
+                                <input type="range" id="rpm" min="1" max="120" step="1" value="18" 
+                                       oninput="updateCalculator()" class="w-full accent-emerald-600">
+                                <div class="flex justify-between text-[10px] text-slate-400 mt-0.5">
+                                    <div>1 €</div><div>120 €</div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="text-sm font-semibold">Kuukausittainen kasvuprosentti</label>
+                                    <span id="growth-value" class="font-mono text-emerald-700 font-semibold">7 %</span>
+                                </div>
+                                <input type="range" id="growth" min="0" max="25" step="0.5" value="7" 
+                                       oninput="updateCalculator()" class="w-full accent-emerald-600">
+                                <div class="flex justify-between text-[10px] text-slate-400 mt-0.5">
+                                    <div>0 %</div><div>25 %</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="updateCalculator(true)" 
+                                class="mt-8 w-full h-12 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 transition text-white font-semibold rounded-2xl flex items-center justify-center gap-x-2">
+                            <i class="fa-solid fa-sync-alt"></i>
+                            <span>Päivitä laskelma</span>
+                        </button>
+                        
+                        <div class="text-center mt-4">
+                            <button onclick="resetCalculator()" class="text-xs text-slate-400 hover:text-slate-600">Nollaa arvot</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Results -->
+                    <div class="lg:col-span-7 bg-white border border-slate-200 rounded-3xl p-8 flex flex-col">
+                        <div>
+                            <div class="uppercase text-xs tracking-[1.5px] font-bold text-emerald-600">ARVIOITU TULOS</div>
+                            
+                            <div class="flex items-baseline gap-x-3 mt-1">
+                                <div id="monthly-revenue" 
+                                     class="text-[72px] leading-none font-semibold tabular-nums text-slate-900">2 250</div>
+                                <div class="text-3xl font-medium text-slate-400">€ / kk</div>
+                            </div>
+                            
+                            <div class="flex items-center gap-x-2 text-sm">
+                                <div class="text-emerald-600 font-semibold">+ <span id="yearly-revenue">27 000</span> € vuodessa</div>
+                            </div>
+                            <div id="calc-upsell" class="pro-upsell hidden mt-5 p-4 bg-emerald-50 border border-emerald-200 rounded-2xl">
+                                <p class="text-sm font-semibold text-emerald-900">Haluat 24 kk ennusteen + CSV-viennin?</p>
+                                <p class="text-xs text-emerald-800 mt-1">Pro-jäsenet näkevät pidemmän projektion ja saavat valmiit oppaat.</p>
+                                <button type="button" onclick="showProModal()" class="mt-3 w-full sm:w-auto px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-xl">Avaa Pro 7,90 €/kk</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Chart -->
+                        <div class="mt-auto pt-8">
+                            <div class="flex items-center justify-between mb-3 px-1">
+                                <div class="text-sm font-semibold"><span id="chart-period-label">12 kk</span> projektio (kasvulla)</div>
+                                <div id="pro-chart-cta" onclick="showProModal()" class="cursor-pointer text-xs px-3 py-1 bg-emerald-100 text-emerald-700 rounded-2xl font-medium hover:bg-emerald-200">Pro: 24 kk + vienti →</div>
+                            </div>
+                            <div id="pro-calc-extras" class="hidden grid grid-cols-3 gap-2 mb-3 text-center text-xs">
+                                <div class="bg-emerald-50 rounded-xl py-2 px-1"><div class="text-slate-500">Keskiarvo</div><div id="pro-avg" class="font-bold text-emerald-700">—</div></div>
+                                <div class="bg-emerald-50 rounded-xl py-2 px-1"><div class="text-slate-500">24 kk yht.</div><div id="pro-total" class="font-bold text-emerald-700">—</div></div>
+                                <div class="bg-emerald-50 rounded-xl py-2 px-1"><div class="text-slate-500">Tavoite</div><div class="font-bold text-emerald-700">10k/kk</div></div>
+                            </div>
+                            <div class="bg-slate-50 border border-slate-100 rounded-2xl p-4">
+                                <canvas id="revenue-chart" height="110"></canvas>
+                            </div>
+                            <button id="export-csv-btn" onclick="exportCalculatorCsv()" class="hidden mt-3 w-full text-xs font-semibold py-2 border border-emerald-200 text-emerald-700 rounded-xl hover:bg-emerald-50">
+                                <i class="fa-solid fa-download mr-1"></i> Vie CSV (Pro)
+                            </button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="text-center mt-6 text-xs text-slate-500 max-w-md mx-auto">
+                Laskuri on suuntaa-antava. Todelliset tulot riippuvat sisällön laadusta, markkinoinnista ja nichestä.
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="max-w-screen-xl mx-auto px-6 py-16">
+        <div class="text-center mb-10">
+            <div class="uppercase text-xs font-bold tracking-widest text-emerald-600">TODISTETTUJA TULOKSIA</div>
+            <h2 class="text-3xl font-semibold tracking-tight mt-2">Suomalaiset, jotka ovat jo onnistuneet</h2>
+            <p class="text-xs text-slate-400 mt-2">Esimerkkitarinoita jäseniltämme</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+            <article class="testimonial-card bg-white border border-slate-200 rounded-3xl p-7 flex flex-col">
+                <div class="flex items-start gap-3 mb-4">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" class="w-12 h-12 rounded-full object-cover ring-2 ring-slate-100 shrink-0" alt="Laura H." width="48" height="48" loading="lazy">
+                    <div class="flex-1 min-w-0">
+                        <div class="font-semibold">Laura H.</div>
+                        <div class="text-xs text-slate-500">Tampere · Affiliate &amp; digituotteet</div>
+                    </div>
+                    <time class="text-[11px] text-slate-400 shrink-0" datetime="2026-02">Helmikuu 2026</time>
+                </div>
+                <div class="star-rating text-sm mb-3" aria-label="5 tähteä">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-sm text-slate-600 leading-relaxed flex-1">"Aloitin affiliate-linkeillä keväällä 2025. Nyt myyn myös omaa Canva-pohjapakettia. Pro-oppaat ja valmiit mallit säästivät viikkoja — ensimmäinen myynti tuli jo kolmantena viikkona."</p>
+                <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+                    <span class="text-xs text-emerald-600 flex items-center gap-1.5"><i class="fa-solid fa-circle-check"></i> Vahvistettu Pro-jäsen</span>
+                    <span class="text-sm font-semibold tabular-nums text-slate-800">~1 240 €<span class="font-normal text-slate-500">/kk</span></span>
+                </div>
+            </article>
+            
+            <article class="testimonial-card bg-white border border-slate-200 rounded-3xl p-7 flex flex-col">
+                <div class="flex items-start gap-3 mb-4">
+                    <img src="https://randomuser.me/api/portraits/men/22.jpg" class="w-12 h-12 rounded-full object-cover ring-2 ring-slate-100 shrink-0" alt="Mikko P." width="48" height="48" loading="lazy">
+                    <div class="flex-1 min-w-0">
+                        <div class="font-semibold">Mikko P.</div>
+                        <div class="text-xs text-slate-500">Helsinki · Blogi &amp; mainostulot</div>
+                    </div>
+                    <time class="text-[11px] text-slate-400 shrink-0" datetime="2026-01">Tammikuu 2026</time>
+                </div>
+                <div class="star-rating text-sm mb-3" aria-label="5 tähteä">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-sm text-slate-600 leading-relaxed flex-1">"Käytin SivuHustlen SEO-opasta ja sisällönkalenteria. 14 kuukaudessa blogi tuottaa nyt noin 1 900 €/kk. Ilman Pro-oppaita en olisi koskaan noussut hakutuloksiin."</p>
+                <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+                    <span class="text-xs text-emerald-600 flex items-center gap-1.5"><i class="fa-solid fa-circle-check"></i> Vahvistettu Pro-jäsen</span>
+                    <span class="text-sm font-semibold tabular-nums text-slate-800">~1 890 €<span class="font-normal text-slate-500">/kk</span></span>
+                </div>
+            </article>
+            
+            <article class="testimonial-card bg-white border border-slate-200 rounded-3xl p-7 flex flex-col">
+                <div class="flex items-start gap-3 mb-4">
+                    <img src="https://randomuser.me/api/portraits/women/33.jpg" class="w-12 h-12 rounded-full object-cover ring-2 ring-slate-100 shrink-0" alt="Sari K." width="48" height="48" loading="lazy">
+                    <div class="flex-1 min-w-0">
+                        <div class="font-semibold">Sari K.</div>
+                        <div class="text-xs text-slate-500">Oulu · Pieni SaaS + affiliate</div>
+                    </div>
+                    <time class="text-[11px] text-slate-400 shrink-0" datetime="2025-12">Joulukuu 2025</time>
+                </div>
+                <div class="star-rating text-sm mb-3" aria-label="5 tähteä">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <p class="text-sm text-slate-600 leading-relaxed flex-1">"Rakensin pienen laskurityökalun SaaS-opas kädessä. Nyt 42 maksavaa käyttäjää ja affiliate-tulot päälle. Pro-yhteisöstä sain palautetta ennen julkaisua — säästi turhat virheet."</p>
+                <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+                    <span class="text-xs text-emerald-600 flex items-center gap-1.5"><i class="fa-solid fa-circle-check"></i> Vahvistettu Pro-jäsen</span>
+                    <span class="text-sm font-semibold tabular-nums text-slate-800">~2 400 €<span class="font-normal text-slate-500">/kk</span></span>
+                </div>
+            </article>
+        </div>
+        <p class="text-center text-xs text-slate-400 mt-6 max-w-xl mx-auto">Esimerkkitarinoita kuvitteellisilta jäseniltä. Tulot ovat suuntaa-antavia eivätkä takaa samanlaisia tuloksia.</p>
+    </section>
+
+    <!-- Artikkelit / Content teaser -->
+    <section id="artikkelit" class="max-w-screen-xl mx-auto px-6 py-12">
+        <div class="flex justify-between items-end mb-8">
+            <div>
+                <h2 class="section-header tracking-tighter">Uusimmat käytännön oppaat</h2>
+                <p class="text-slate-600">Lue ilmaiseksi. Pro-jäsenet saavat täydet oppaat + mallit + päivitykset.</p>
+            </div>
+            <a href="oppaat.html" class="hidden md:flex text-sm font-semibold items-center text-emerald-700 hover:text-emerald-800">
+                Katso kaikki oppaat <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+            </a>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+            <a href="affiliate-opas.html" class="group guide-card block bg-white border border-slate-200 hover:border-slate-300 transition rounded-3xl overflow-hidden">
+                <div class="h-1.5 bg-gradient-to-r from-emerald-400 to-teal-400"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold px-3 py-px bg-emerald-100 text-emerald-700 rounded-2xl">AFFILIATE</span>
+                        <span class="text-xs text-slate-400">12 min</span>
+                    </div>
+                    <h4 class="font-semibold text-xl tracking-tight mt-3 group-hover:text-emerald-700 transition-colors">Miten tienata 2 000–4 000 €/kk affiliate-markkinoinnilla Suomessa 2026</h4>
+                    <p class="text-sm text-slate-600 mt-3">Käytännön opas suomalaisille sopivista ohjelmista, sisällön rakenteesta ja SEO:sta. Sisältää valmiit linkkilistat.</p>
+                    <span class="mt-6 inline-block text-sm font-semibold text-emerald-700">Lue ilmainen teaser →</span>
+                    <div class="text-xs text-amber-600 mt-2">Pro: Täysi opas + linkkilistat + case study</div>
+                </div>
+            </a>
+            
+            <a href="digituote-opas.html" class="group guide-card block bg-white border border-slate-200 hover:border-slate-300 transition rounded-3xl overflow-hidden">
+                <div class="h-1.5 bg-gradient-to-r from-amber-400 to-orange-400"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold px-3 py-px bg-amber-100 text-amber-700 rounded-2xl">DIGITUOTTEET</span>
+                        <span class="text-xs text-slate-400">9 min</span>
+                    </div>
+                    <h4 class="font-semibold text-xl tracking-tight mt-3 group-hover:text-emerald-700 transition-colors">Myy ensimmäinen digituote 7 päivässä</h4>
+                    <p class="text-sm text-slate-600 mt-3">Gumroad + Stripe + Canva -yhdistelmä. Reseptit, treeniohjelmat, some-pohjat, e-kirjat. Korkea marginaali, ei varastoa.</p>
+                    <span class="mt-6 inline-block text-sm font-semibold text-emerald-700">Lue ilmainen teaser →</span>
+                    <div class="text-xs text-amber-600 mt-2">Pro: Valmiit pohjat + hinnoittelumallit + myyntitekstit</div>
+                </div>
+            </a>
+            
+            <a href="blogi-opas.html" class="group guide-card block bg-white border border-slate-200 hover:border-slate-300 transition rounded-3xl overflow-hidden">
+                <div class="h-1.5 bg-gradient-to-r from-sky-400 to-blue-400"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold px-3 py-px bg-sky-100 text-sky-700 rounded-2xl">BLOGI &amp; SEO</span>
+                        <span class="text-xs text-slate-400">14 min</span>
+                    </div>
+                    <h4 class="font-semibold text-xl tracking-tight mt-3 group-hover:text-emerald-700 transition-colors">Miten rakentaa 10 000 €/kk blogi 14 kuukaudessa</h4>
+                    <p class="text-sm text-slate-600 mt-3">Täydellinen case study suomalaisesta bloggaajasta. SEO-strategia, sisällönkalenteri ja tarkka sisältörakenne.</p>
+                    <span class="mt-6 inline-block text-sm font-semibold text-emerald-700">Lue ilmainen teaser →</span>
+                    <div class="text-xs text-amber-600 mt-2">Pro: 42 sivun case + avainsanalista + template</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 mt-6">
+            <a href="verotus-opas.html" class="group guide-card block bg-white border border-slate-200 hover:border-slate-300 transition rounded-3xl overflow-hidden">
+                <div class="h-1.5 bg-gradient-to-r from-violet-400 to-purple-400"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold px-3 py-px bg-violet-100 text-violet-700 rounded-2xl">VEROTUS</span>
+                        <span class="text-xs text-slate-400">8 min</span>
+                    </div>
+                    <h4 class="font-semibold text-xl tracking-tight mt-3 group-hover:text-emerald-700 transition-colors">Sivuhustle ja verotus Suomessa 2026</h4>
+                    <p class="text-sm text-slate-600 mt-3">YEL, kevytyrittäjä, tulorekisteri ja ALV digituotteissa — selkeä aloitusopas.</p>
+                    <span class="mt-6 inline-block text-sm font-semibold text-emerald-700">Lue ilmainen teaser →</span>
+                </div>
+            </a>
+            <a href="youtube-tiktok-opas.html" class="group guide-card block bg-white border border-slate-200 hover:border-slate-300 transition rounded-3xl overflow-hidden">
+                <div class="h-1.5 bg-gradient-to-r from-rose-400 to-pink-400"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold px-3 py-px bg-rose-100 text-rose-700 rounded-2xl">SOME</span>
+                        <span class="text-xs text-slate-400">10 min</span>
+                    </div>
+                    <h4 class="font-semibold text-xl tracking-tight mt-3 group-hover:text-emerald-700 transition-colors">YouTube &amp; TikTok sivuhustle aloittelijalle</h4>
+                    <p class="text-sm text-slate-600 mt-3">Sisältöidea, julkaisutahti ja ensimmäiset tulot affiliate + mainoksilla.</p>
+                    <span class="mt-6 inline-block text-sm font-semibold text-emerald-700">Lue ilmainen teaser →</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Pro Member Hub (näkyy vain Pro-käyttäjille) -->
+    <section id="pro-member-hub" class="hidden max-w-screen-xl mx-auto px-6 pb-12">
+        <div class="bg-gradient-to-br from-emerald-800 to-slate-900 text-white rounded-3xl p-8 md:p-10">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <div>
+                    <div class="text-emerald-300 text-xs font-bold tracking-widest uppercase">Pro-jäsenalue</div>
+                    <h2 class="text-3xl font-semibold tracking-tight mt-2">Tervetuloa, Pro-jäsen!</h2>
+                    <p class="text-emerald-100 mt-2 max-w-lg">Kaikki täydet oppaat ja mallit ovat alla. Lataa, lue ja aloita heti.</p>
+                </div>
+                <a href="jasenet.html" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-emerald-900 font-semibold rounded-2xl hover:bg-emerald-50 transition">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Avaa opasvalikoima</span>
+                </a>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+                <a href="affiliate-opas-pro.html" class="bg-white/10 hover:bg-white/15 border border-white/10 rounded-2xl p-5 transition">
+                    <div class="text-xs text-emerald-300 font-bold">PRO</div>
+                    <div class="font-semibold mt-1">Affiliate-opas</div>
+                </a>
+                <a href="digituote-opas-pro.html" class="bg-white/10 hover:bg-white/15 border border-white/10 rounded-2xl p-5 transition">
+                    <div class="text-xs text-emerald-300 font-bold">PRO</div>
+                    <div class="font-semibold mt-1">Digituote-opas</div>
+                </a>
+                <a href="blogi-opas-pro.html" class="bg-white/10 hover:bg-white/15 border border-white/10 rounded-2xl p-5 transition">
+                    <div class="text-xs text-emerald-300 font-bold">PRO</div>
+                    <div class="font-semibold mt-1">Blogi &amp; SEO</div>
+                </a>
+                <a href="index.html#laskuri" class="bg-white/10 hover:bg-white/15 border border-white/10 rounded-2xl p-5 transition">
+                    <div class="text-xs text-emerald-300 font-bold">TYÖKALU</div>
+                    <div class="font-semibold mt-1">Edistynyt laskuri</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Magnet -->
+    <section id="ilmainen-opas" class="pro-upsell max-w-screen-xl mx-auto px-6 pb-16">
+        <div class="bg-emerald-900 text-white rounded-3xl px-8 md:px-12 py-10 md:py-12">
+            <div class="grid md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-7">
+                    <div class="uppercase text-emerald-400 text-sm font-bold tracking-widest">ILMAINEN LADATTAVA</div>
+                    <h3 class="text-3xl font-semibold tracking-tight mt-2">7 päivän sivuhustle-käynnistyssuunnitelma</h3>
+                    <p class="mt-3 text-emerald-200">Saat heti ladattavan oppaan: valitse niche, aloita ensimmäinen sisältö ja aseta realistiset tulotavoitteet ensimmäiselle 90 päivälle.</p>
+                    <ul class="text-sm mt-4 space-y-1 text-emerald-200">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check"></i> <span>Valmis niche-valintataulukko</span></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check"></i> <span>Ensimmäisen viikon sisältökalenteri</span></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check"></i> <span>10 valmista affiliate-lähestymistapaa</span></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-5">
+                    <form id="lead-form" onsubmit="submitLeadForm(event)" class="bg-white/10 backdrop-blur p-7 rounded-3xl border border-white/20">
+                        <div class="space-y-4">
+                            <div>
+                                <input type="text" id="lead-name" placeholder="Nimi" required class="w-full h-12 px-4 rounded-2xl text-slate-900 border border-white/30 placeholder:text-slate-400 bg-white">
+                            </div>
+                            <div>
+                                <input type="email" id="lead-email" placeholder="Sähköposti" required class="w-full h-12 px-4 rounded-2xl text-slate-900 border border-white/30 placeholder:text-slate-400 bg-white">
+                            </div>
+                            <button type="submit" 
+                                    class="w-full h-12 bg-white hover:bg-slate-100 text-emerald-800 font-bold rounded-2xl flex items-center justify-center">
+                                Lataa ilmainen opas nyt
+                            </button>
+                        </div>
+                        <div class="text-center text-[10px] text-emerald-200 mt-3">Ilmainen opas sähköpostiisi. Ei roskapostia — voit lopettaa milloin tahansa.</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="max-w-screen-xl mx-auto px-6 pb-16">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-semibold tracking-tight">Usein kysytyt kysymykset</h2>
+        </div>
+        
+        <div class="max-w-3xl mx-auto divide-y divide-slate-200" id="faq-list">
+            <div class="faq-item py-5">
+                <button type="button" onclick="toggleFaq(this)" class="w-full text-left font-semibold flex items-center justify-between gap-4" aria-expanded="false">
+                    <span>Onko tämä laillista ja verotettavaa?</span>
+                    <i class="fa-solid fa-chevron-down faq-chevron text-slate-400 text-sm flex-shrink-0"></i>
+                </button>
+                <div class="faq-answer text-sm mt-1.5 text-slate-600">Kyllä. Kaikki affiliate-tulot ja digituotteiden myynti ovat verotettavaa tuloa Suomessa. Suosittelemme kirjanpidon aloittamista heti kun tulot ylittävät 1 000 €/vuosi.</div>
+            </div>
+            <div class="faq-item py-5">
+                <button type="button" onclick="toggleFaq(this)" class="w-full text-left font-semibold flex items-center justify-between gap-4" aria-expanded="false">
+                    <span>Kuinka nopeasti voin tienata ensimmäiset eurot?</span>
+                    <i class="fa-solid fa-chevron-down faq-chevron text-slate-400 text-sm flex-shrink-0"></i>
+                </button>
+                <div class="faq-answer text-sm mt-1.5 text-slate-600">Monet jäsenemme näkevät ensimmäiset komissiot 3–6 viikon sisällä. Ensimmäiset merkittävät tulot (500+ €/kk) tulevat tyypillisesti 3–7 kuukauden aktiivisella työllä.</div>
+            </div>
+            <div class="faq-item py-5">
+                <button type="button" onclick="toggleFaq(this)" class="w-full text-left font-semibold flex items-center justify-between gap-4" aria-expanded="false">
+                    <span>Tarvitsenko oman verkkosivun?</span>
+                    <i class="fa-solid fa-chevron-down faq-chevron text-slate-400 text-sm flex-shrink-0"></i>
+                </button>
+                <div class="faq-answer text-sm mt-1.5 text-slate-600">Ei pakollisesti. Voit aloittaa Instagramilla, YouTubella, TikTokilla tai sähköpostilistalla. Oma sivusto nopeuttaa kuitenkin skaalaamista ja parantaa tuloksia merkittävästi.</div>
+            </div>
+            <div class="faq-item py-5">
+                <button type="button" onclick="toggleFaq(this)" class="w-full text-left font-semibold flex items-center justify-between gap-4" aria-expanded="false">
+                    <span>Mitä Pro-jäsenyys oikeasti sisältää?</span>
+                    <i class="fa-solid fa-chevron-down faq-chevron text-slate-400 text-sm flex-shrink-0"></i>
+                </button>
+                <div class="faq-answer text-sm mt-1.5 text-slate-600">Kaikki Pro-oppaat, valmiit mallit, linkkilistat, 24 kk laskuri + CSV-vienti, jäsenalue ja uudet oppaat sitä mukaa kun niitä julkaistaan.</div>
+            </div>
+            <div class="faq-item py-5">
+                <button type="button" onclick="toggleFaq(this)" class="w-full text-left font-semibold flex items-center justify-between gap-4" aria-expanded="false">
+                    <span>Maksoin Pro:n mutta badge ei näy?</span>
+                    <i class="fa-solid fa-chevron-down faq-chevron text-slate-400 text-sm flex-shrink-0"></i>
+                </button>
+                <div class="faq-answer text-sm mt-1.5 text-slate-600">Kirjaudu ulos ja sisään magic linkillä (sama sähköposti kuin maksussa). Sivusto synkronoi Pro-oikeudet Stripeltä automaattisesti. Jos ongelma jatkuu: asiakaspalvelu@sivuhustle.fi</div>
+            </div>
+            <div class="faq-item py-5">
+                <button type="button" onclick="toggleFaq(this)" class="w-full text-left font-semibold flex items-center justify-between gap-4" aria-expanded="false">
+                    <span>Voinko peruuttaa kuukausijäsenyyden?</span>
+                    <i class="fa-solid fa-chevron-down faq-chevron text-slate-400 text-sm flex-shrink-0"></i>
+                </button>
+                <div class="faq-answer text-sm mt-1.5 text-slate-600">Kyllä, milloin tahansa Stripe-asiakasportaalin kautta. Pro-oikeudet päättyvät maksetun jakson lopussa.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="hinnat" class="max-w-screen-xl mx-auto px-6 py-16 bg-white border-t">
+        <div class="pro-upsell text-center mb-12">
+            <h2 class="text-4xl font-bold tracking-tight">Valitse taso, jolla saat tuloksia</h2>
+            <p class="text-slate-600 mt-3">Aloita ilmaiseksi. Päivitä kun haluat nopeuttaa tuloksia.</p>
+            <p class="inline-block mt-4 text-xs font-medium text-emerald-700 bg-emerald-50 border border-emerald-100 px-4 py-2 rounded-full">3 aktiivista Pro-jäsenyyttä · 8 ilmaista opasta · 100 % suomeksi</p>
+        </div>
+        
+        <div id="pricing-pro-active" class="hidden max-w-lg mx-auto text-center bg-emerald-50 border border-emerald-200 rounded-3xl p-10 pro-member-only">
+            <div class="inline-block px-3 py-1 bg-emerald-600 text-white text-xs font-bold rounded-full">PRO AKTIIVINEN</div>
+            <h3 class="text-2xl font-bold mt-4 tracking-tight">Kiitos — jäsenyytesi on käytössä</h3>
+            <p class="text-slate-600 text-sm mt-2">Sinulla on pääsy kaikkiin Pro-oppaisiin, laskuriin ja malleihin.</p>
+            <a href="jasenet.html" class="inline-block mt-6 px-8 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-2xl">Avaa Pro-oppaat</a>
+            <a href="index.html#laskuri" class="inline-block mt-3 text-sm text-emerald-700 font-medium">Siirry laskuriin →</a>
+        </div>
+
+        <div id="pricing-cards" class="pro-upsell grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            
+            <!-- Free -->
+            <div class="border border-slate-200 rounded-3xl p-8 flex flex-col">
+                <h3 class="font-semibold text-xl">Ilmainen</h3>
+                <div class="mt-4 flex items-baseline">
+                    <span class="text-5xl font-bold">0 €</span>
+                </div>
+                <div class="mt-8 flex-1">
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> Peruslaskuri</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> 8 ilmaista opasta</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> Suositellut affiliate-linkit</li>
+                        <li class="flex gap-2 text-slate-400"><i class="fa-solid fa-times mt-0.5"></i> Mainokset sivulla</li>
+                    </ul>
+                </div>
+                <button onclick="scrollToCalculator()" class="mt-8 w-full py-4 border rounded-2xl font-semibold hover:bg-slate-50">Aloita ilmaiseksi</button>
+            </div>
+            
+            <!-- Pro -->
+            <div class="border-2 border-emerald-600 rounded-3xl p-8 relative flex flex-col shadow-xl bg-white">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-xs font-bold px-6 py-1 rounded-full">SUOSITELTU</div>
+                <h3 class="font-semibold text-xl">Pro</h3>
+                <div class="mt-4 flex items-baseline">
+                    <span class="text-5xl font-bold">7,90 €</span>
+                    <span class="text-slate-500 ml-2">/kk</span>
+                </div>
+                <p class="text-sm text-emerald-600">Tai 79 € vuodessa (säästä 17 %)</p>
+                
+                <div class="mt-8 flex-1">
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> <strong>Kaikki oppaat + uudet</strong></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> Edistynyt laskuri + ennusteet</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> Ei mainoksia</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> PDF-raportit + mallit</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> Yksityinen Discord-yhteisö</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> Ennakko-oikeus uusiin työkaluihin</li>
+                    </ul>
+                </div>
+
+                <!-- Pro kuukausimaksu -->
+                <button onclick="startProStripeCheckout()" 
+                        class="mt-6 w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-semibold flex items-center justify-center gap-x-2">
+                    <span>Maksa 7,90 €/kk</span>
+                </button>
+                <div class="mt-1 text-center text-[10px] text-emerald-600">Kuukausimaksu • Peru milloin tahansa</div>
+
+                <!-- Pro vuosimaksu -->
+                <button onclick="startProYearlyStripeCheckout()" 
+                        class="mt-3 w-full py-3.5 border border-emerald-600 text-emerald-600 hover:bg-emerald-50 rounded-2xl font-semibold flex items-center justify-center gap-x-2">
+                    <span>Maksa 79 € vuodessa <span class="text-emerald-500 text-xs">(säästä 17 %)</span></span>
+                </button>
+                <div class="mt-1 text-center text-[10px] text-emerald-600">Kertamaksu vuodelle • Stripe Checkout</div>
+            </div>
+            
+            <!-- Lifetime -->
+            <div class="border border-slate-200 rounded-3xl p-8 flex flex-col">
+                <h3 class="font-semibold text-xl">Elinikäinen</h3>
+                <div class="mt-4 flex items-baseline">
+                    <span class="text-5xl font-bold">249 €</span>
+                </div>
+                <p class="text-sm text-emerald-600">Yksi maksu • Ei toistuvia kuluja</p>
+                
+                <div class="mt-8 flex-1">
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> Kaikki Pro-ominaisuudet ikuisesti</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> Kaikki tulevat päivitykset</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> Etusija uusissa työkaluissa</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> Yksityinen Discord-yhteisö</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-500 mt-0.5"></i> 30 min sparrauspuhelu</li>
+                    </ul>
+                </div>
+                
+                <button onclick="startLifetimeStripeCheckout()" 
+                        class="mt-8 w-full py-4 border border-emerald-600 text-emerald-600 hover:bg-emerald-50 rounded-2xl font-bold flex items-center justify-center gap-x-2">
+                    <span>Osta Lifetime 249 €</span>
+                </button>
+                <div class="mt-2 text-center text-[10px] text-emerald-600">Kertamaksu • Stripe Checkout</div>
+            </div>
+        </div>
+
+        <div class="pro-upsell text-center mt-10 max-w-5xl mx-auto">
+            <div class="inline-block bg-slate-50 border px-5 py-3 rounded-3xl text-sm">
+                Haluatko vain yhden oppaan heti? 
+                <a href="#" onclick="buySingleGuide(); return false;" class="font-semibold text-emerald-600 hover:underline">Osta Pro-opas kertamaksulla 19 € →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <div class="pro-upsell bg-slate-900 py-14">
+        <div class="max-w-screen-xl mx-auto px-6 text-center text-white">
+            <h3 class="text-3xl font-semibold tracking-tight">Valmis aloittamaan oman sivuhustlesi?</h3>
+            <p class="mt-3 text-emerald-300 max-w-sm mx-auto">Liity tänään ja saat ilmaisen oppaan + pääsyn laskuriin heti.</p>
+            
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="startProStripeCheckout()" 
+                        class="px-10 h-14 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-lg rounded-3xl inline-flex items-center gap-x-3 active:scale-[0.985] transition">
+                    <span>Maksa Pro 7,90 €/kk</span>
+                </button>
+                <button onclick="scrollToCalculator()" class="px-8 h-14 border border-white/30 text-white font-semibold rounded-3xl hover:bg-white/5">
+                    Kokeile laskuria ensin
+                </button>
+            </div>
+            <div class="text-xs text-white/50 mt-4">Turvallinen maksu Stripellä • 30 päivän tyytyväisyystakuu</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t py-10 text-sm">
+        <div class="max-w-screen-xl mx-auto px-6 grid md:grid-cols-12 gap-y-8 text-slate-500">
+            <div class="md:col-span-5">
+                <div class="flex items-center gap-x-2 text-slate-900">
+                    <div class="w-8 h-8 bg-slate-900 rounded-2xl flex items-center justify-center">
+                        <i class="fa-solid fa-chart-line text-white"></i>
+                    </div>
+                    <span class="font-display text-2xl font-semibold tracking-tighter">SivuHustle.fi</span>
+                </div>
+                <div class="mt-3 max-w-xs text-sm">Suomenkielinen sivuhustle-sivusto vuodesta 2024. Opastamme suomalaisia rakentamaan kestävää sivutuloa askel askeleelta.</div>
+            </div>
+            
+            <div class="md:col-span-3 text-xs space-y-1.5">
+                <div class="font-semibold text-slate-700 mb-1">Resurssit</div>
+                <a href="#laskuri" class="block hover:text-slate-700 transition-colors">Ilmainen laskuri</a>
+                <a href="oppaat.html" class="block hover:text-slate-700 transition-colors">Kaikki oppaat</a>
+                <a href="#hinnat" class="block hover:text-slate-700 transition-colors">Jäsenyydet</a>
+            </div>
+            
+            <div class="md:col-span-4 text-xs">
+                <div class="font-semibold text-slate-700 mb-1">Oikeudellista</div>
+                <div class="flex flex-wrap gap-x-4">
+                    <a href="tietosuojaseloste.html" class="hover:text-slate-700 transition-colors">Tietosuojaseloste</a>
+                    <a href="kayttoehdot.html" class="hover:text-slate-700 transition-colors">Käyttöehdot</a>
+                    <span>Tietoa affiliate-linkeistä alla</span>
+                </div>
+                <div class="mt-4 text-[10px] leading-tight">Sivustolla käytetään affiliate-linkkejä. Ostamalla tuotteita linkkien kautta tuet sivuston toimintaa. SivuHustle.fi ei ole taloudellinen neuvonantaja.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky CTA (näkyy vierityksen jälkeen) -->
+    <div id="sticky-cta" class="pro-upsell fixed bottom-0 left-0 right-0 z-40 translate-y-full transition-transform duration-300 pointer-events-none">
+        <div class="max-w-screen-xl mx-auto px-4 pb-4 pointer-events-auto">
+            <div class="bg-slate-900 text-white rounded-2xl shadow-2xl px-5 py-4 flex flex-wrap items-center justify-between gap-3 border border-slate-700">
+                <div class="text-sm">
+                    <span class="font-semibold">Pro:</span> 24 kk laskuri + kaikki oppaat · <span class="text-emerald-400">7,90 €/kk</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button type="button" onclick="document.getElementById('hinnat').scrollIntoView({behavior:'smooth'})" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-xl text-sm font-semibold">Katso hinnat</button>
+                    <button type="button" onclick="hideStickyCta()" class="w-9 h-9 text-slate-400 hover:text-white" aria-label="Sulje">&times;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exit intent — opas tai Pro (sisältö vaihtuu leadin jälkeen) -->
+    <div id="exit-modal" onclick="if (event.target.id === 'exit-modal') hideExitModal()" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-[90] p-6">
+        <div id="exit-modal-panel" onclick="event.stopPropagation()" class="bg-white max-w-md w-full rounded-3xl p-8 shadow-xl"></div>
+    </div>
+
+    <!-- Pro Modal -->
+    <div id="pro-modal" onclick="if (event.target.id === 'pro-modal') hideProModal()" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[100] p-6">
+        <div onclick="event.stopImmediatePropagation()" class="bg-white w-full max-w-md rounded-3xl overflow-hidden">
+            <div class="px-8 pt-8 pb-6">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <div class="pro-badge inline-block mb-1">PRO</div>
+                        <h3 class="text-3xl font-semibold tracking-tight">Maksa Pro 7,90 €/kk</h3>
+                    </div>
+                    <button onclick="hideProModal()" class="text-3xl leading-none text-slate-300 hover:text-slate-400">&times;</button>
+                </div>
+                
+                <div class="mt-6">
+                    <div class="text-sm">Valitse kuukausi- tai vuosimaksu.</div>
+                    <div class="mt-1 text-xs text-emerald-600 font-medium">Useimmat jäsenet saavat ensimmäiset tulonsa ennen kuin maksu alkaa.</div>
+                    
+                    <div class="mt-6 space-y-4">
+                        <div>
+                            <label class="text-xs font-bold text-slate-500 block mb-1.5">SÄHKÖPOSTI</label>
+                            <input id="pro-email" type="email" placeholder="sinu@esimerkki.fi" class="w-full border border-slate-300 h-12 px-4 rounded-2xl text-sm">
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold text-slate-500 block mb-1.5">NIMI</label>
+                            <input id="pro-name" type="text" placeholder="Etunimi Sukunimi" class="w-full border border-slate-300 h-12 px-4 rounded-2xl text-sm">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="px-8 py-6 bg-slate-50 border-t flex flex-col gap-y-3">
+                <button onclick="startProStripeCheckout()" 
+                        class="h-14 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 transition text-white font-bold rounded-2xl flex items-center justify-center gap-x-2">
+                    <i class="fa-brands fa-stripe text-xl"></i>
+                    <span>Maksa Pro 7,90 €/kk</span>
+                </button>
+                <div class="text-center text-[10px] text-slate-400">Siirryt Stripe Checkoutiin • Turvallinen maksu • Peru milloin tahansa</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" onclick="if (event.target.id === 'success-modal') hideSuccessModal()" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[110] p-6">
+        <div onclick="event.stopImmediatePropagation()" class="bg-white max-w-sm w-full rounded-3xl p-8 text-center">
+            <div class="mx-auto w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-5">
+                <i class="fa-solid fa-check text-4xl"></i>
+            </div>
+            <h3 class="font-semibold text-2xl">Kiitos! Olet nyt Pro-jäsen.</h3>
+            <p class="mt-3 text-slate-600">Lähetimme kirjautumislinkin sähköpostiisi. Voit kirjautua sisään milloin tahansa.</p>
+            
+            <div class="mt-6 text-xs bg-emerald-50 border border-emerald-100 p-3 rounded-2xl text-left">
+                <strong>Seuraavat askeleet:</strong><br>
+                1. Tarkista sähköpostisi<br>
+                2. Lataa Pro-oppaat ja mallit<br>
+                3. Suorita laskuri Pro-tilassa
+            </div>
+            
+            <button onclick="hideSuccessModal(); scrollToCalculator()" 
+                    class="mt-6 w-full py-4 bg-emerald-600 text-white font-bold rounded-2xl">Siirry laskuriin</button>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        // ============================================
+        // STRIPE PAYMENT LINKS
+        // ============================================
+        // Nämä linkit on nyt asetettu.
+
+        const STRIPE = {
+            proMonthly: 'https://buy.stripe.com/6oUdRa72J6vSgiCc3va3u00',   // Pro kuukausi (7,90 €/kk)
+            proYearly:  'https://buy.stripe.com/14A28s1Ip7zW1nIaZra3u02',    // Pro vuosi (79 €)
+            lifetime:   'https://buy.stripe.com/bJe5kEcn3g6sfey9Vna3u01'      // Lifetime (249 €)
+        };
+
+        // Tuote-ID:t viitteeksi
+        const STRIPE_PRODUCTS = {
+            proMonthly: 'prod_Ulms5V3wxRk3ec',
+            lifetime:   'prod_UlmzHGbnYJ9xAj'
+        };
+
+        // Suositellut Success URL:t (kopioi nämä Stripe Payment Linkkien asetuksiin)
+        // Käytä omaa domainiasi kun julkaiset sivuston (esim. sivuhustle.fi tai localhost testissä)
+        const SUCCESS_URLS = {
+            pro:       'https://www.sivuhustle.fi/kiitos.html?plan=pro',
+            proYearly: 'https://www.sivuhustle.fi/kiitos.html?plan=pro_yearly',
+            lifetime:  'https://www.sivuhustle.fi/kiitos.html?plan=lifetime'
+        };
+
+        // ============================================
+        // SUPABASE CONFIG - VALMIS (sinun projektisi)
+        // ============================================
+        const SUPABASE_URL = 'https://zjpvxacinryojpqwdrti.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_4m9ZxlvCezsxJepNe-4Jxw_g9VDZKPR';
+
+        async function getSupabase() {
+            if (window.SivuHustleAuth) return window.SivuHustleAuth.getClient();
+            return null;
+        }
+
+        // ============================================
+        // STRIPE SUCCESS REDIRECT (automaattinen paluu sivustolle)
+        // ============================================
+        // Jotta Stripe ohjaa automaattisesti takaisin sivustolle /kiitos-sivulle
+        // maksun jälkeen, MUOKKAA JOKAISTA PAYMENT LINKIÄ Stripessä:
+        //
+        // Mene Stripe Dashboard → Payment Links → valitse linkki → Edit
+        // Aseta "Success URL":
+        //
+        // Pro kuukausi:  SUCCESS_URLS.pro
+        // Pro vuosi:     SUCCESS_URLS.proYearly
+        // Lifetime:      SUCCESS_URLS.lifetime
+        //
+        // Esimerkki (korvaa domain kun julkaiset):
+        // https://sivuhustle.fi/kiitos.html?plan=pro
+        //
+        // Voit myös käyttää:
+        // https://sivuhustle.fi/kiitos.html?session_id={CHECKOUT_SESSION_ID}&plan=pro
+        //
+        // Tämän jälkeen maksun jälkeen asiakas ohjataan automaattisesti kiitos-sivulle.
+        // ============================================
+
+        // Tailwind + config
+        function initializeTailwind() {
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            'display': ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif']
+                        }
+                    }
+                }
+            };
+        }
+        
+        let revenueChart = null;
+        
+        function updateMethodUI() {
+            const method = document.getElementById('method-select').value;
+            const rpmSlider = document.getElementById('rpm');
+            const rpmValue = document.getElementById('rpm-value');
+            const rpmField = document.getElementById('rpm-field');
+            
+            let suggestedRPM = 18;
+            let labelText = "Tulot per 1 000 kävijää (RPM)";
+            
+            switch(method) {
+                case 'affiliate':
+                    suggestedRPM = 22;
+                    labelText = "Keskim. komissio per konversio + CTR";
+                    break;
+                case 'digital':
+                    suggestedRPM = 45;
+                    labelText = "Keskim. tuotto per 1 000 kävijää (korkea marginaali)";
+                    break;
+                case 'content':
+                    suggestedRPM = 8;
+                    labelText = "Mainostulot per 1 000 kävijää (AdSense/Ezoic)";
+                    break;
+                case 'saas':
+                    suggestedRPM = 65;
+                    labelText = "Keskim. MRR / 1 000 käyttäjää";
+                    break;
+            }
+            
+            rpmSlider.value = suggestedRPM;
+            rpmValue.textContent = suggestedRPM + " €";
+            
+            const label = rpmField.querySelector('label');
+            if (label) label.textContent = labelText;
+            
+            updateCalculator();
+        }
+        
+        function updateCalculator(forceRecalculate = false) {
+            const visitors = parseInt(document.getElementById('visitors').value);
+            const rpm = parseFloat(document.getElementById('rpm').value);
+            const growth = parseFloat(document.getElementById('growth').value);
+            
+            document.getElementById('visitors-value').textContent = visitors.toLocaleString('fi-FI');
+            document.getElementById('rpm-value').textContent = rpm + " €";
+            document.getElementById('growth-value').textContent = growth + " %";
+            
+            const monthlyRevenue = Math.round(visitors * (rpm / 1000));
+            
+            document.getElementById('monthly-revenue').textContent = monthlyRevenue.toLocaleString('fi-FI');
+            document.getElementById('yearly-revenue').textContent = (monthlyRevenue * 12).toLocaleString('fi-FI');
+            
+            calcInteractions++;
+            maybeShowCalcUpsell(monthlyRevenue);
+            updateRevenueChart(monthlyRevenue, growth);
+        }
+        
+        let lastProjection = [];
+
+        function updateRevenueChart(baseMonthly, monthlyGrowthPercent) {
+            const ctx = document.getElementById('revenue-chart');
+            
+            if (revenueChart) {
+                revenueChart.destroy();
+            }
+            
+            const monthCount = isProUser ? 24 : 12;
+            const months = [];
+            const revenues = [];
+            let current = baseMonthly;
+            lastProjection = [];
+            
+            for (let i = 1; i <= monthCount; i++) {
+                months.push(i + ". kk");
+                const val = Math.round(current);
+                revenues.push(val);
+                lastProjection.push({ month: i, revenue: val });
+                current = current * (1 + monthlyGrowthPercent / 100);
+            }
+
+            const label = document.getElementById('chart-period-label');
+            if (label) label.textContent = monthCount + ' kk';
+
+            if (isProUser) {
+                const avg = Math.round(revenues.reduce((a, b) => a + b, 0) / revenues.length);
+                const total = revenues.reduce((a, b) => a + b, 0);
+                const avgEl = document.getElementById('pro-avg');
+                const totalEl = document.getElementById('pro-total');
+                if (avgEl) avgEl.textContent = avg.toLocaleString('fi-FI') + ' €';
+                if (totalEl) totalEl.textContent = total.toLocaleString('fi-FI') + ' €';
+            }
+            
+            revenueChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: 'Arvioitu kuukausitulo (€)',
+                        data: revenues,
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.35,
+                        pointBackgroundColor: '#10b981',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => context.raw.toLocaleString('fi-FI') + ' €'
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: '#e2e8f0', lineWidth: 0.5 },
+                            ticks: { 
+                                callback: (val) => val.toLocaleString('fi-FI') + '€',
+                                font: { size: 10 }
+                            }
+                        },
+                        x: {
+                            grid: { color: '#e2e8f0', lineWidth: 0.5 },
+                            ticks: { font: { size: 10 } }
+                        }
+                    }
+                }
+            });
+        }
+        
+        function resetCalculator() {
+            document.getElementById('visitors').value = 12500;
+            document.getElementById('rpm').value = 18;
+            document.getElementById('growth').value = 7;
+            
+            document.getElementById('method-select').value = 'affiliate';
+            updateMethodUI();
+        }
+        
+        function selectMethodAndScroll(method) {
+            const select = document.getElementById('method-select');
+            select.value = method;
+            updateMethodUI();
+            
+            document.getElementById('laskuri').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'center' 
+            });
+            
+            setTimeout(() => {
+                updateCalculator();
+            }, 650);
+        }
+        
+        function scrollToCalculator() {
+            document.getElementById('laskuri').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'center' 
+            });
+        }
+        
+        const AFFILIATE_URLS = (window.SIVUHUSTLE && window.SIVUHUSTLE.AFFILIATE_LINKS) || {
+            gumroad: 'https://gumroad.com/',
+            verkkokauppa: 'https://www.verkkokauppa.com/',
+            booking: 'https://www.booking.com/',
+            canva: 'https://www.canva.com/pro/',
+            hostinger: 'https://www.hostinger.fi/',
+            mailerlite: 'https://www.mailerlite.com/'
+        };
+
+        let calcInteractions = 0;
+        let stickyCtaDismissed = false;
+        let authCheckComplete = false;
+
+        function trackAffiliateClick(event, tool) {
+            if (event) event.preventDefault();
+            const url = AFFILIATE_URLS[tool];
+            if (!url) return;
+            if (typeof gtag === 'function') gtag('event', 'affiliate_click', { tool: tool });
+            if (typeof trackMeta === 'function') trackMeta('ViewContent', { content_name: tool });
+            window.open(url, '_blank', 'noopener,noreferrer');
+        }
+
+        function hideStickyCta() {
+            stickyCtaDismissed = true;
+            const bar = document.getElementById('sticky-cta');
+            if (bar) bar.classList.add('translate-y-full');
+            try { sessionStorage.setItem('sticky_cta_dismissed', '1'); } catch (_) {}
+        }
+
+        function showStickyCtaIfNeeded() {
+            if (!authCheckComplete || stickyCtaDismissed || isProUser) return;
+            try { if (sessionStorage.getItem('sticky_cta_dismissed')) return; } catch (_) {}
+            const bar = document.getElementById('sticky-cta');
+            if (bar && window.scrollY > 700) bar.classList.remove('translate-y-full');
+        }
+
+        function hideExitModal() {
+            const m = document.getElementById('exit-modal');
+            if (m) { m.classList.add('hidden'); m.classList.remove('flex'); }
+        }
+
+        function renderExitModalContent() {
+            const panel = document.getElementById('exit-modal-panel');
+            if (!panel) return;
+            let hasLead = false;
+            try { hasLead = !!sessionStorage.getItem('lead_captured'); } catch (_) {}
+
+            if (hasLead) {
+                panel.innerHTML = `
+                    <button type="button" onclick="hideExitModal()" class="float-right text-2xl text-slate-300 hover:text-slate-500" aria-label="Sulje">&times;</button>
+                    <p class="text-emerald-600 text-xs font-bold uppercase tracking-widest">Ennen kuin lähdet</p>
+                    <h3 class="text-2xl font-bold mt-2 tracking-tight">Nopeuta tuloksia Pro:lla</h3>
+                    <p class="text-slate-600 text-sm mt-2">Sinulla on jo ilmainen opas. Pro avaa kaikki oppaat, mallit ja 24 kk laskurin.</p>
+                    <button type="button" onclick="hideExitModal(); startProStripeCheckout();" class="mt-6 block w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white text-center font-semibold rounded-2xl">Avaa Pro 7,90 €/kk</button>
+                    <button type="button" onclick="hideExitModal()" class="mt-3 w-full text-sm text-slate-400 hover:text-slate-600">Ei kiitos</button>`;
+            } else {
+                panel.innerHTML = `
+                    <button type="button" onclick="hideExitModal()" class="float-right text-2xl text-slate-300 hover:text-slate-500" aria-label="Sulje">&times;</button>
+                    <p class="text-emerald-600 text-xs font-bold uppercase tracking-widest">Ennen kuin lähdet</p>
+                    <h3 class="text-2xl font-bold mt-2 tracking-tight">Ota ilmainen 7 päivän opas mukaan</h3>
+                    <p class="text-slate-600 text-sm mt-2">Aloita sivutulo askel askeleelta — ei maksukorttia.</p>
+                    <a href="#ilmainen-opas" onclick="hideExitModal()" class="mt-6 block w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white text-center font-semibold rounded-2xl">Hae ilmainen opas</a>
+                    <button type="button" onclick="hideExitModal()" class="mt-3 w-full text-sm text-slate-400 hover:text-slate-600">Ei kiitos</button>`;
+            }
+        }
+
+        function maybeShowExitModal(e) {
+            if (!authCheckComplete || e.clientY > 10 || isProUser) return;
+            try { if (sessionStorage.getItem('exit_modal_shown')) return; } catch (_) {}
+            try { sessionStorage.setItem('exit_modal_shown', '1'); } catch (_) {}
+            renderExitModalContent();
+            const m = document.getElementById('exit-modal');
+            if (m) { m.classList.remove('hidden'); m.classList.add('flex'); }
+        }
+
+        function maybeShowCalcUpsell(monthlyRevenue) {
+            if (isProUser) return;
+            const box = document.getElementById('calc-upsell');
+            if (box) box.classList.remove('hidden');
+            if (calcInteractions >= 2 && monthlyRevenue >= 1200) {
+                try {
+                    if (!sessionStorage.getItem('pro_modal_auto')) {
+                        sessionStorage.setItem('pro_modal_auto', '1');
+                        setTimeout(showProModal, 600);
+                    }
+                } catch (_) {}
+            }
+        }
+
+        function exportCalculatorCsv() {
+            if (!isProUser || !lastProjection.length) return;
+            const method = document.getElementById('method-select').value;
+            const rows = [['Kuukausi', 'Arvio €', 'Menetelmä'], ...lastProjection.map(r => [r.month, r.revenue, method])];
+            const csv = rows.map(r => r.join(';')).join('\n');
+            const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'sivuhustle-projektio.csv';
+            a.click();
+        }
+
+        function applyProCalculatorUI() {
+            const extras = document.getElementById('pro-calc-extras');
+            const exportBtn = document.getElementById('export-csv-btn');
+            const cta = document.getElementById('pro-chart-cta');
+            const memberLink = document.getElementById('member-area-link');
+            const calcUpsell = document.getElementById('calc-upsell');
+            const stickyCta = document.getElementById('sticky-cta');
+            if (extras) extras.classList.toggle('hidden', !isProUser);
+            if (exportBtn) exportBtn.classList.toggle('hidden', !isProUser);
+            if (calcUpsell && !isProUser) calcUpsell.classList.add('hidden');
+            if (stickyCta && isProUser) {
+                stickyCta.classList.add('translate-y-full', 'hidden');
+            }
+            if (cta) {
+                if (isProUser) {
+                    cta.textContent = 'Pro aktiivinen ✓';
+                    cta.classList.remove('cursor-pointer', 'hover:bg-emerald-200');
+                    cta.onclick = null;
+                }
+            }
+            if (memberLink) memberLink.classList.toggle('hidden', !isProUser);
+            updateCalculator();
+        }
+
+        function applyProSiteUI() {
+            applyProCalculatorUI();
+            document.querySelectorAll('.pro-upsell').forEach(function (el) {
+                el.classList.toggle('hidden', isProUser);
+            });
+            document.querySelectorAll('.pro-member-only').forEach(function (el) {
+                el.classList.toggle('hidden', !isProUser);
+            });
+            const heroBtn = document.getElementById('hero-members-btn');
+            const heroLabel = document.getElementById('hero-members-label');
+            if (heroBtn && heroLabel) {
+                if (isProUser) {
+                    heroLabel.textContent = 'Avaa Pro-oppaat';
+                    heroBtn.onclick = function () { window.location.href = 'jasenet.html'; };
+                } else {
+                    heroLabel.textContent = 'Näytä jäsenyydet';
+                    heroBtn.onclick = function () { document.getElementById('hinnat').scrollIntoView({ behavior: 'smooth' }); };
+                }
+            }
+            if (isProUser) {
+                document.body.classList.add('is-pro-member');
+                try { sessionStorage.setItem('lead_captured', '1'); } catch (_) {}
+            } else {
+                document.body.classList.remove('is-pro-member');
+            }
+        }
+
+        function goToProMemberArea() {
+            const hub = document.getElementById('pro-member-hub');
+            if (hub) hub.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            else window.location.href = 'jasenet.html';
+        }
+        
+        function showProModal() {
+            if (isProUser) { goToProMemberArea(); return; }
+            document.getElementById('pro-modal').classList.remove('hidden');
+            document.getElementById('pro-modal').classList.add('flex');
+        }
+        
+        function hideProModal() {
+            const modal = document.getElementById('pro-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+        
+        function simulateProPayment() {
+            // Vanha simulaatio poistettu - käytä oikeaa Stripe Checkoutia
+            hideProModal();
+            startProStripeCheckout();
+        }
+        
+        function showSuccessModal() {
+            document.getElementById('success-modal').classList.remove('hidden');
+            document.getElementById('success-modal').classList.add('flex');
+        }
+        
+        function hideSuccessModal() {
+            const modal = document.getElementById('success-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        // ============================================
+        // STRIPE CHECKOUT - Real Payment Buttons
+        // ============================================
+        function startProStripeCheckout() {
+            if (isProUser) { goToProMemberArea(); return; }
+            const link = STRIPE.proMonthly;
+            if (link.includes('REPLACE')) {
+                alert('Stripe-linkki puuttuu.\n\nAvaa index.html ja aseta oikea linkki yläreunan STRIPE.proMonthly -kohtaan.\nProduct ID: ' + STRIPE_PRODUCTS.proMonthly);
+                return;
+            }
+            // Stripe hoitaa redirectin automaattisesti kiitos-sivulle
+            // (asetettu Payment Linkin Success URL:ksi Stripe Dashboardissa)
+            if (typeof gtag === 'function') gtag('event', 'begin_checkout', { item_name: 'pro_monthly' });
+            if (typeof trackMeta === 'function') trackMeta('InitiateCheckout', { content_name: 'pro_monthly', value: 7.9, currency: 'EUR' });
+            window.location.href = link;
+        }
+
+        function startProYearlyStripeCheckout() {
+            if (isProUser) { goToProMemberArea(); return; }
+            const link = STRIPE.proYearly;
+            if (link.includes('REPLACE')) {
+                alert('Stripe-linkki puuttuu.\n\nAvaa index.html ja aseta oikea linkki yläreunan STRIPE.proYearly -kohtaan.\nLuo ensin vuosimaksulle oma tuote/hinta Stripessä.');
+                return;
+            }
+            if (typeof gtag === 'function') gtag('event', 'begin_checkout', { item_name: 'pro_yearly' });
+            if (typeof trackMeta === 'function') trackMeta('InitiateCheckout', { content_name: 'pro_yearly', value: 79, currency: 'EUR' });
+            window.location.href = link;
+        }
+
+        function startLifetimeStripeCheckout() {
+            if (isProUser) { goToProMemberArea(); return; }
+            const link = STRIPE.lifetime;
+            if (link.includes('REPLACE')) {
+                alert('Stripe-linkki puuttuu.\n\nAvaa index.html ja aseta oikea linkki yläreunan STRIPE.lifetime -kohtaan.\nProduct ID: ' + STRIPE_PRODUCTS.lifetime);
+                return;
+            }
+            if (typeof gtag === 'function') gtag('event', 'begin_checkout', { item_name: 'lifetime' });
+            if (typeof trackMeta === 'function') trackMeta('InitiateCheckout', { content_name: 'lifetime', value: 249, currency: 'EUR' });
+            window.location.href = link;
+        }
+
+        // ============================================
+        // STRIPE ONNISTUMISEN KÄSITTELY
+        // ============================================
+        // Käytetään Stripe:n omaa vahvistussivua (ei automaattista modalia).
+        // Tätä funktiota voi kutsua manuaalisesti jos tarvitaan.
+
+        function showStripeSuccessModal(plan = 'pro') {
+            let title = 'Kiitos ostoksestasi!';
+            let message = 'Maksusi on vastaanotettu. Tervetuloa jäseneksi!';
+            let nextStep = 'Saat pian sähköpostiin kirjautumisohjeet ja pääsyn Pro-ominaisuuksiin.';
+
+            if (plan === 'pro_yearly') {
+                title = 'Kiitos! Vuosimaksusi on vahvistettu.';
+                message = 'Sait 17 % alennuksen. Kiitos tuestasi!';
+                nextStep = 'Nauti kaikista Pro-ominaisuuksista seuraavan vuoden ajan.';
+            } else if (plan === 'lifetime') {
+                title = 'Kiitos! Elinikäinen jäsenyys aktivoitu.';
+                message = 'Sinulla on nyt ikuinen pääsy kaikkeen sisältöön ja tuleviin päivityksiin.';
+                nextStep = 'Tervetuloa pysyväksi jäseneksi!';
+            }
+
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black/70 flex items-center justify-center z-[130] p-6';
+            modal.innerHTML = `
+                <div class="bg-white max-w-md w-full rounded-3xl p-9 text-center">
+                    <div class="mx-auto w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-check text-4xl"></i>
+                    </div>
+                    
+                    <h3 class="font-semibold text-2xl tracking-tight">${title}</h3>
+                    <p class="mt-3 text-slate-600">${message}</p>
+                    
+                    <div class="mt-6 bg-emerald-50 border border-emerald-200 rounded-2xl p-4 text-sm text-left">
+                        <strong>Seuraavaksi:</strong><br>
+                        ${nextStep}<br><br>
+                        • Tarkista sähköpostisi<br>
+                        • Kirjaudu sisään ja aloita Pro-ominaisuuksien käyttö
+                    </div>
+
+                    <div class="flex gap-3 mt-6">
+                        <button onclick="this.closest('.fixed').remove(); document.getElementById('laskuri').scrollIntoView({behavior:'smooth'})" 
+                                class="flex-1 py-3.5 bg-emerald-600 text-white font-semibold rounded-2xl">
+                            Siirry laskuriin
+                        </button>
+                        <button onclick="this.closest('.fixed').remove()" 
+                                class="flex-1 py-3.5 border border-slate-300 font-semibold rounded-2xl">
+                            Sulje
+                        </button>
+                    </div>
+                    
+                    <div class="mt-4 text-xs text-slate-400">Saat vahvistuksen ja ohjeet myös sähköpostitse.</div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+        
+        function toggleFaq(button) {
+            const item = button.closest('.faq-item');
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(el => {
+                el.classList.remove('open');
+                const btn = el.querySelector('button');
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                button.setAttribute('aria-expanded', 'true');
+            }
+        }
+
+        function initNavSpy() {
+            const sections = ['menetelmat', 'laskuri', 'tyokalut', 'artikkelit', 'hinnat'];
+            const links = document.querySelectorAll('.nav-link');
+            if (!links.length) return;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        links.forEach(link => {
+                            link.classList.toggle('nav-active', link.dataset.nav === id);
+                        });
+                    }
+                });
+            }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) observer.observe(el);
+            });
+        }
+
+        function showLifetimeModal() {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black/70 flex items-center justify-center z-[100] p-6';
+            modal.innerHTML = `
+                <div onclick="event.target.remove()" class="bg-white w-full max-w-md rounded-3xl p-8">
+                    <div class="flex justify-between">
+                        <div>
+                            <span class="pro-badge">ELINIKÄINEN</span>
+                            <h3 class="text-3xl font-semibold tracking-tighter mt-2">249 € kertamaksu</h3>
+                        </div>
+                        <button onclick="event.target.closest('.fixed').remove()" class="text-4xl text-slate-300 hover:text-slate-400 leading-none">&times;</button>
+                    </div>
+                    
+                    <div class="my-6 text-sm">Saat kaiken Pro-sisällön + tulevat päivitykset ikuisesti. Sopii vakavasti sivuhustleihin panostaville.</div>
+                    
+                    <div class="bg-slate-50 border rounded-2xl p-4 text-sm">
+                        <div class="font-semibold mb-2">Sisältää:</div>
+                        <ul class="space-y-1 text-xs">
+                            <li>✓ Kaikki oppaat + uudet julkaisut</li>
+                            <li>✓ Edistynyt laskuri + vienti PDF/Excel</li>
+                            <li>✓ Yksityinen Discord-yhteisö</li>
+                            <li>✓ 30 min sparrauspuhelu</li>
+                        </ul>
+                    </div>
+                    
+                    <button onclick="startLifetimeStripeCheckout()" class="mt-6 w-full py-4 bg-emerald-600 text-white font-bold rounded-2xl flex justify-center items-center gap-x-2">
+                        <i class="fa-brands fa-stripe"></i>
+                        <span>Osta Lifetime 249 €</span>
+                    </button>
+                    
+                    <div class="text-center text-[10px] mt-4 text-slate-400">Yksi maksu • 30 päivän tyytyväisyystakuu</div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+        
+        function simulateLifetimePurchase(element) {
+            // Vanha simulaatio → käytä oikeaa Stripea
+            const container = element.closest('.fixed');
+            container.remove();
+            startLifetimeStripeCheckout();
+        }
+        
+        function buySingleGuide() {
+            if (isProUser) { goToProMemberArea(); return; }
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black/70 flex items-center justify-center z-[100] p-6';
+            modal.onclick = function (e) { if (e.target === modal) modal.remove(); };
+            modal.innerHTML = `
+                <div class="bg-white w-full max-w-md rounded-3xl p-8">
+                    <button type="button" onclick="this.closest('.fixed').remove()" class="float-right text-2xl text-slate-300 hover:text-slate-500" aria-label="Sulje">&times;</button>
+                    <p class="text-emerald-600 text-xs font-bold uppercase tracking-widest">Vertailu</p>
+                    <h3 class="text-2xl font-bold mt-2 tracking-tight">Yksi opas 19 € vai koko Pro?</h3>
+                    <p class="text-sm text-slate-600 mt-2">Yksittäinen Pro-opas maksaa 19 €. Pro-jäsenyys 7,90 €/kk sisältää <strong>kaikki oppaat</strong>, laskurin, mallit ja uudet julkaisut.</p>
+                    <div class="mt-5 space-y-2 text-sm">
+                        <div class="flex justify-between border-b pb-2"><span>1 opas</span><span class="font-semibold">19 €</span></div>
+                        <div class="flex justify-between border-b pb-2"><span>Pro kuukausi</span><span class="font-semibold text-emerald-600">7,90 €</span></div>
+                        <div class="flex justify-between"><span>Pro vuosi</span><span class="font-semibold text-emerald-600">79 € (kaikki)</span></div>
+                    </div>
+                    <button type="button" onclick="startProStripeCheckout(); this.closest('.fixed').remove();" class="mt-6 w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-2xl">Valitse Pro 7,90 €/kk</button>
+                    <button type="button" onclick="document.getElementById('hinnat').scrollIntoView({behavior:'smooth'}); this.closest('.fixed').remove();" class="mt-2 w-full py-2 text-sm text-slate-500 hover:text-slate-700">Vertaa kaikkia hintoja</button>
+                </div>`;
+            document.body.appendChild(modal);
+            if (typeof gtag === 'function') gtag('event', 'view_item', { item_name: 'single_guide_compare' });
+        }
+
+        async function sendLeadWelcomeEmail(email, name) {
+            try {
+                const res = await fetch(SUPABASE_URL + '/functions/v1/send-lead-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+                        'apikey': SUPABASE_ANON_KEY
+                    },
+                    body: JSON.stringify({ email: email, name: name })
+                });
+                if (!res.ok) console.warn('[Lead email]', await res.text());
+            } catch (err) {
+                console.warn('[Lead email]', err);
+            }
+        }
+
+        async function submitLeadForm(e) {
+            e.preventDefault();
+
+            const btn = e.currentTarget.querySelector('button[type="submit"]');
+            if (btn) { btn.disabled = true; btn.textContent = 'Lähetetään…'; }
+
+            const email = document.getElementById('lead-email').value.trim();
+            const name = document.getElementById('lead-name').value.trim();
+            const firstName = name.split(' ')[0] || 'ystävä';
+            const attr = (window.SivuHustleAttribution && window.SivuHustleAttribution.get()) || {};
+
+            const leadRow = {
+                email: email,
+                name: name,
+                source: 'pdf',
+                utm_source: attr.utm_source,
+                utm_medium: attr.utm_medium,
+                utm_campaign: attr.utm_campaign,
+                utm_content: attr.utm_content,
+                landing_page: attr.landing_page
+            };
+
+            try {
+                const supabase = await getSupabase();
+                if (supabase) {
+                    const { error } = await supabase.from('leads').insert(leadRow);
+                    if (error) console.warn('[Leads]', error.message);
+                }
+            } catch (err) {
+                console.warn('[Leads]', err);
+            }
+
+            sendLeadWelcomeEmail(email, name);
+            try { sessionStorage.setItem('lead_captured', '1'); } catch (_) {}
+
+            if (typeof gtag === 'function') {
+                gtag('event', 'generate_lead', Object.assign({ method: 'pdf' }, attr));
+            }
+            if (typeof trackMeta === 'function') {
+                trackMeta('Lead', { content_name: '7_paivan_opas' });
+            }
+
+            const thankYou = 'kiitos-lataus.html?name=' + encodeURIComponent(firstName);
+            window.location.href = thankYou;
+        }
+        
+        function initializeCalculator() {
+            const visitorsSlider = document.getElementById('visitors');
+            const rpmSlider = document.getElementById('rpm');
+            const growthSlider = document.getElementById('growth');
+            
+            visitorsSlider.value = 12500;
+            rpmSlider.value = 18;
+            growthSlider.value = 7;
+            
+            document.getElementById('method-select').value = 'affiliate';
+            
+            visitorsSlider.oninput = () => updateCalculator();
+            rpmSlider.oninput = () => updateCalculator();
+            growthSlider.oninput = () => updateCalculator();
+            
+            setTimeout(() => {
+                updateMethodUI();
+                updateCalculator();
+            }, 120);
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === "?" && document.activeElement.tagName === "BODY") {
+                    e.preventDefault();
+                    document.getElementById('laskuri').scrollIntoView({behavior: 'smooth'});
+                }
+            });
+        }
+        
+        function initializeEverything() {
+            cleanupStuckOverlays();
+            initializeTailwind();
+            initializeCalculator();
+            initNavSpy();
+            
+            // Logo click → scroll to top
+            const logoArea = document.querySelector('nav .fa-chart-line');
+            if (logoArea) {
+                const logoBtn = logoArea.closest('.flex.items-center');
+                if (logoBtn) {
+                    logoBtn.style.cursor = 'pointer';
+                    logoBtn.setAttribute('role', 'button');
+                    logoBtn.setAttribute('tabindex', '0');
+                    logoBtn.setAttribute('aria-label', 'SivuHustle etusivu');
+                    const goHome = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+                    logoBtn.onclick = goHome;
+                    logoBtn.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goHome(); } };
+                }
+            }
+            
+            console.log('%c[SivuHustle.fi] Ammattimainen versio ladattu.', 'color:#64748b; font-size:10px');
+
+            // Jos käyttäjä ohjataan takaisin Stripe success -parametreilla,
+            // ohjaa suoraan kiitos-sivulle
+            redirectToKiitosIfNeeded();
+
+            try { stickyCtaDismissed = !!sessionStorage.getItem('sticky_cta_dismissed'); } catch (_) {}
+            window.addEventListener('scroll', showStickyCtaIfNeeded, { passive: true });
+            document.addEventListener('mouseout', maybeShowExitModal);
+        }
+
+        function handleLoginQueryParam() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('login') === '1' && !currentUser) {
+                showLoginModal();
+                params.delete('login');
+                const clean = params.toString();
+                const nextUrl = window.location.pathname + (clean ? '?' + clean : '') + window.location.hash;
+                window.history.replaceState({}, '', nextUrl);
+            }
+        }
+
+        function redirectToKiitosIfNeeded() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('stripe_success') === 'true' || params.has('session_id')) {
+                const plan = params.get('plan') || 'pro';
+                window.location.replace('kiitos.html?plan=' + encodeURIComponent(plan));
+            }
+        }
+
+        // ============================================
+        // SUPABASE AUTH
+        // ============================================
+        let currentUser = null;
+        let isProUser = false;
+
+        async function updateAuthUI() {
+            const authButtons = document.getElementById('auth-buttons');
+            const userMenu = document.getElementById('user-menu');
+            const mobileAuth = document.getElementById('mobile-auth');
+            const mobileUser = document.getElementById('mobile-user');
+            const emailDisplay = document.getElementById('user-email-display');
+            const proBadge = document.getElementById('pro-badge');
+
+            const supabase = await getSupabase();
+            if (!supabase || !currentUser) {
+                if (authButtons) authButtons.classList.remove('hidden');
+                if (userMenu) userMenu.classList.add('hidden');
+                if (mobileAuth) mobileAuth.classList.remove('hidden');
+                if (mobileUser) mobileUser.classList.add('hidden');
+                return;
+            }
+
+            // Logged in
+            if (authButtons) authButtons.classList.add('hidden');
+            if (userMenu) userMenu.classList.remove('hidden');
+            if (userMenu) userMenu.classList.add('flex');
+            if (mobileAuth) mobileAuth.classList.add('hidden');
+            if (mobileUser) mobileUser.classList.remove('hidden');
+
+            if (emailDisplay) emailDisplay.textContent = currentUser.email || 'Käyttäjä';
+            
+            if (proBadge) {
+                if (isProUser) {
+                    proBadge.classList.remove('hidden');
+                    proBadge.classList.add('inline-block');
+                } else {
+                    proBadge.classList.add('hidden');
+                    proBadge.classList.remove('inline-block');
+                }
+            }
+        }
+
+        window.onSivuHustleAuthReady = async function(state) {
+            authCheckComplete = true;
+            currentUser = state.user || null;
+            isProUser = !!state.isPro;
+            await updateAuthUI();
+            applyProSiteUI();
+
+            if (isProUser) {
+                document.querySelectorAll('.pro-teaser').forEach(el => el.style.display = 'none');
+                const hub = document.getElementById('pro-member-hub');
+                if (hub) hub.classList.remove('hidden');
+            }
+
+            handleLoginQueryParam();
+        };
+
+        function closeAuthModals() {
+            document.querySelectorAll('.auth-modal-overlay').forEach(el => el.remove());
+            document.body.classList.remove('modal-open');
+        }
+
+        function cleanupStuckOverlays() {
+            document.querySelectorAll('.fixed.inset-0').forEach(el => {
+                if (el.id === 'pro-modal' || el.id === 'success-modal') return;
+                const panel = el.querySelector('.bg-white, .rounded-3xl');
+                if (!panel) el.remove();
+            });
+            if (!document.querySelector('.auth-modal-overlay, #pro-modal:not(.hidden), #success-modal:not(.hidden)')) {
+                document.body.classList.remove('modal-open');
+            }
+        }
+
+        function openAuthModal(panelHtml) {
+            closeAuthModals();
+            const modal = document.createElement('div');
+            modal.className = 'auth-modal-overlay fixed inset-0 bg-black/70 flex items-center justify-center z-[100] p-6';
+            modal.setAttribute('role', 'dialog');
+            modal.setAttribute('aria-modal', 'true');
+            modal.onclick = (e) => { if (e.target === modal) closeAuthModals(); };
+            modal.innerHTML = panelHtml;
+            document.body.appendChild(modal);
+            document.body.classList.add('modal-open');
+            setTimeout(() => modal.querySelector('input')?.focus(), 80);
+            return modal;
+        }
+
+        function getAuthRedirectUrl() {
+            if (window.location.protocol === 'file:') {
+                return 'https://www.sivuhustle.fi/index.html';
+            }
+            return 'https://www.sivuhustle.fi' + window.location.pathname;
+        }
+
+        function formatAuthError(error, context = 'login') {
+            const msg = (error?.message || '').toLowerCase();
+            if (msg.includes('invalid login credentials') || msg.includes('invalid credentials')) {
+                return 'Virheellinen sähköposti tai salasana.\n\nOstitko Pro-jäsenyyden Stripellä? Silloin tilillä ei ole vielä salasanaa. Käytä "Lähetä kirjautumislinkki" tai "Aseta salasana".';
+            }
+            if (msg.includes('email not confirmed')) {
+                return 'Sähköpostia ei ole vahvistettu. Tarkista postilaatikkosi ja klikkaa vahvistuslinkkiä.';
+            }
+            if (msg.includes('rate limit')) {
+                return 'Liian monta yritystä. Odota hetki ja yritä uudelleen.';
+            }
+            return (context === 'login' ? 'Kirjautuminen epäonnistui: ' : 'Toiminto epäonnistui: ') + (error?.message || 'Tuntematon virhe');
+        }
+
+        async function login(email, password) {
+            const supabase = await getSupabase();
+            if (!supabase) {
+                alert('Supabase ei ole konfiguroitu. Käytä demoa.');
+                return;
+            }
+
+            const { error } = await supabase.auth.signInWithPassword({ email, password });
+            if (error) {
+                alert(formatAuthError(error, 'login'));
+                return;
+            }
+            closeAuthModals();
+            if (window.SivuHustleAuth) {
+                const state = await window.SivuHustleAuth.getAuthState();
+                window.onSivuHustleAuthReady(state);
+            }
+        }
+
+        async function sendMagicLink(email) {
+            const supabase = await getSupabase();
+            if (!supabase) return;
+
+            const { error } = await supabase.auth.signInWithOtp({
+                email,
+                options: { emailRedirectTo: getAuthRedirectUrl() }
+            });
+            if (error) {
+                alert(formatAuthError(error, 'magic'));
+                return;
+            }
+            alert('Kirjautumislinkki lähetetty osoitteeseen ' + email + '. Tarkista sähköpostisi (myös roskaposti).');
+        }
+
+        async function sendPasswordReset(email) {
+            const supabase = await getSupabase();
+            if (!supabase) return;
+
+            const { error } = await supabase.auth.resetPasswordForEmail(email, {
+                redirectTo: getAuthRedirectUrl()
+            });
+            if (error) {
+                alert(formatAuthError(error, 'reset'));
+                return;
+            }
+            alert('Salasanan asetuslinkki lähetetty osoitteeseen ' + email + '. Tarkista sähköpostisi.');
+        }
+
+        async function register(email, password) {
+            const supabase = await getSupabase();
+            if (!supabase) {
+                alert('Supabase ei ole konfiguroitu.');
+                return;
+            }
+
+            const { data, error } = await supabase.auth.signUp({ 
+                email, 
+                password,
+                options: {
+                    emailRedirectTo: window.location.origin
+                }
+            });
+            if (error) {
+                alert('Rekisteröinti epäonnistui: ' + error.message);
+                return;
+            }
+            closeAuthModals();
+            alert('Rekisteröinti onnistui! Tarkista sähköpostisi vahvistuslinkkiä varten (tai kirjaudu sisään jos vahvistus pois päältä).');
+            await updateAuthUI();
+        }
+
+        async function logout() {
+            const supabase = await getSupabase();
+            if (supabase) {
+                await supabase.auth.signOut();
+            }
+            if (window.onSivuHustleAuthReady) {
+                window.onSivuHustleAuthReady({ user: null, isPro: false });
+            }
+        }
+
+        function showLoginModal() {
+            if (document.querySelector('.auth-modal-overlay')) {
+                closeAuthModals();
+            }
+            openAuthModal(`
+                <div class="bg-white w-full max-w-sm rounded-3xl p-8 relative" onclick="event.stopPropagation()">
+                    <button type="button" onclick="closeAuthModals()" class="absolute top-4 right-4 w-8 h-8 text-slate-300 hover:text-slate-500 text-2xl leading-none" aria-label="Sulje">&times;</button>
+                    <h3 class="font-semibold text-2xl pr-8">Kirjaudu sisään</h3>
+                    <p class="text-sm text-slate-500 mt-1">Maksoit Pro-jäsenyyden? Käytä sähköpostilinkkiä alla — salasanaa ei ole vielä.</p>
+                    
+                    <div class="mt-6 space-y-4">
+                        <div>
+                            <label for="login-email" class="text-xs font-bold tracking-wider text-slate-500">SÄHKÖPOSTI</label>
+                            <input id="login-email" type="email" autocomplete="email" placeholder="sinu@esimerkki.fi" class="mt-1.5 w-full border px-4 h-12 rounded-2xl">
+                        </div>
+                        <div>
+                            <label for="login-password" class="text-xs font-bold tracking-wider text-slate-500">SALASANA (vain jos olet asettanut)</label>
+                            <input id="login-password" type="password" autocomplete="current-password" class="mt-1.5 w-full border px-4 h-12 rounded-2xl">
+                        </div>
+                    </div>
+                    
+                    <button type="button" onclick="handleMagicLink(this)" class="mt-6 w-full h-12 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-2xl">
+                        Lähetä kirjautumislinkki sähköpostiin
+                    </button>
+                    <button type="button" onclick="handlePasswordReset(this)" class="mt-3 w-full h-11 border border-slate-200 text-slate-700 font-semibold rounded-2xl text-sm hover:bg-slate-50">
+                        Aseta salasana (sama sähköposti kuin maksussa)
+                    </button>
+                    <button type="button" onclick="handleLogin(this)" class="mt-3 w-full text-sm text-slate-500 hover:text-slate-700">
+                        Kirjaudu salasanalla →
+                    </button>
+                    
+                    <div class="text-center mt-4 text-xs">
+                        <span class="text-slate-400">Etkö ole jäsen?</span> 
+                        <button type="button" onclick="closeAuthModals(); showRegisterModal()" class="text-emerald-600 font-semibold">Luo tili</button>
+                    </div>
+                </div>
+            `);
+        }
+
+        async function handleLogin(btn) {
+            const modal = btn.closest('.auth-modal-overlay');
+            const email = modal.querySelector('#login-email').value.trim();
+            const password = modal.querySelector('#login-password').value;
+            if (!email || !password) {
+                alert('Syötä sähköposti ja salasana.');
+                return;
+            }
+            await login(email, password);
+        }
+
+        async function handleMagicLink(btn) {
+            const modal = btn.closest('.auth-modal-overlay');
+            const email = modal.querySelector('#login-email').value.trim();
+            if (!email) {
+                alert('Syötä sähköpostiosoite ensin.');
+                return;
+            }
+            await sendMagicLink(email);
+        }
+
+        async function handlePasswordReset(btn) {
+            const modal = btn.closest('.auth-modal-overlay');
+            const email = modal.querySelector('#login-email').value.trim();
+            if (!email) {
+                alert('Syötä sähköpostiosoite ensin.');
+                return;
+            }
+            await sendPasswordReset(email);
+        }
+
+        function showRegisterModal() {
+            openAuthModal(`
+                <div class="bg-white w-full max-w-sm rounded-3xl p-8 relative" onclick="event.stopPropagation()">
+                    <button type="button" onclick="closeAuthModals()" class="absolute top-4 right-4 w-8 h-8 text-slate-300 hover:text-slate-500 text-2xl leading-none" aria-label="Sulje">&times;</button>
+                    <h3 class="font-semibold text-2xl pr-8">Luo tili</h3>
+                    <p class="text-sm text-slate-500 mt-1">Rekisteröidy ilmaiseksi.</p>
+                    
+                    <div class="mt-6 space-y-4">
+                        <div>
+                            <label for="register-email" class="text-xs font-bold tracking-wider text-slate-500">SÄHKÖPOSTI</label>
+                            <input id="register-email" type="email" autocomplete="email" placeholder="sinu@esimerkki.fi" class="mt-1.5 w-full border px-4 h-12 rounded-2xl">
+                        </div>
+                        <div>
+                            <label for="register-password" class="text-xs font-bold tracking-wider text-slate-500">SALASANA</label>
+                            <input id="register-password" type="password" autocomplete="new-password" class="mt-1.5 w-full border px-4 h-12 rounded-2xl">
+                        </div>
+                    </div>
+                    
+                    <button type="button" onclick="handleRegister(this)" class="mt-6 w-full h-12 bg-emerald-600 text-white font-semibold rounded-2xl">Luo tili</button>
+                    
+                    <div class="text-center mt-4 text-xs">
+                        <span class="text-slate-400">Onko sinulla jo tili?</span> 
+                        <button type="button" onclick="closeAuthModals(); showLoginModal()" class="text-emerald-600 font-semibold">Kirjaudu sisään</button>
+                    </div>
+                </div>
+            `);
+        }
+
+        async function handleRegister(btn) {
+            const modal = btn.closest('.auth-modal-overlay');
+            const email = modal.querySelector('#register-email').value;
+            const password = modal.querySelector('#register-password').value;
+            if (!email || !password) {
+                alert('Syötä sähköposti ja salasana.');
+                return;
+            }
+            if (password.length < 6) {
+                alert('Salasanan tulee olla vähintään 6 merkkiä.');
+                return;
+            }
+            await register(email, password);
+        }
+        
+        window.onload = initializeEverything;
+        
+        // Close mobile menu on link click
+        document.addEventListener('click', function(e) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu && !mobileMenu.classList.contains('hidden') && e.target.tagName === 'A') {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // Sulje modaalit Escape-näppäimellä
+        document.addEventListener('keydown', function(e) {
+            if (e.key !== 'Escape') return;
+            hideProModal();
+            hideSuccessModal();
+            closeAuthModals();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="SivuHustle.fi">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#134e4a"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect x="96" y="96" width="320" height="320" rx="72" fill="#0f172a" stroke="#1e293b" stroke-width="4"/>
+  <path fill="#10b981" d="M140 340 L200 220 L260 260 L320 160 L380 340 Z"/>
+  <circle cx="320" cy="160" r="14" fill="#6ee7b7"/>
+</svg>

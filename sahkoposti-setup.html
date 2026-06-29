@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Sähköposti 3 askelta | SivuHustle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+    <div class="max-w-lg mx-auto px-6 py-10">
+        <a href="index.html" class="text-sm text-emerald-600 font-semibold">← Etusivulle</a>
+
+        <div class="mt-6 bg-white border rounded-3xl p-8 shadow-sm">
+            <p class="text-emerald-600 text-xs font-bold uppercase tracking-widest">Sinulle vain 3 askelta</p>
+            <h1 class="text-2xl font-bold mt-2">asiakaspalvelu@sivuhustle.fi</h1>
+            <p class="text-slate-600 text-sm mt-2">Viestit ohjataan Gmailiisi. Ilmainen. Sivusto on jo päivitetty käyttämään tätä osoitetta.</p>
+        </div>
+
+        <section class="mt-6 bg-white border rounded-3xl p-6">
+            <div class="flex gap-3">
+                <span class="w-8 h-8 bg-slate-900 text-white rounded-full flex items-center justify-center text-sm font-bold shrink-0">1</span>
+                <div>
+                    <h2 class="font-bold">Luo ohjaus (5 min)</h2>
+                    <ol class="text-sm text-slate-600 mt-2 space-y-1 list-decimal list-inside">
+                        <li>Mene <a href="https://improvmx.com" class="text-emerald-600 font-semibold" target="_blank" rel="noopener">improvmx.com</a> → Sign up (ilmainen)</li>
+                        <li><strong>Add domain</strong> → <code class="bg-slate-100 px-1 rounded">sivuhustle.fi</code></li>
+                        <li><strong>Add alias:</strong> <code class="bg-slate-100 px-1 rounded">asiakaspalvelu</code> → ohjaa <strong>oma Gmailisi</strong></li>
+                        <li>Lisää myös alias <code class="bg-slate-100 px-1 rounded">tuki</code> → sama Gmail (valinnainen)</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-4 bg-white border rounded-3xl p-6">
+            <div class="flex gap-3">
+                <span class="w-8 h-8 bg-slate-900 text-white rounded-full flex items-center justify-center text-sm font-bold shrink-0">2</span>
+                <div class="flex-1 min-w-0">
+                    <h2 class="font-bold">Lisää DNS Verceliin (5 min)</h2>
+                    <p class="text-sm text-slate-600 mt-1">Vercel → projekti → Settings → Domains → sivuhustle.fi → DNS Records</p>
+                    <p class="text-xs text-slate-500 mt-3 font-bold uppercase">Kopioi nämä:</p>
+                    <div class="mt-2 space-y-2 text-xs font-mono">
+                        <div class="p-3 bg-slate-900 text-emerald-300 rounded-xl" id="mx1">MX · @ · mx1.improvmx.com · Priority 10</div>
+                        <div class="p-3 bg-slate-900 text-emerald-300 rounded-xl" id="mx2">MX · @ · mx2.improvmx.com · Priority 20</div>
+                        <div class="p-3 bg-amber-50 text-amber-900 rounded-xl border border-amber-200">TXT · @ · (ImprovMX näyttää oman vahvistusrivin — kopioi sieltä)</div>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-2">Odota 15–60 min. ImprovMX näyttää vihreän kun toimii.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-4 bg-white border rounded-3xl p-6">
+            <div class="flex gap-3">
+                <span class="w-8 h-8 bg-slate-900 text-white rounded-full flex items-center justify-center text-sm font-bold shrink-0">3</span>
+                <div>
+                    <h2 class="font-bold">Facebook-sivu</h2>
+                    <p class="text-sm text-slate-600 mt-1">Sivu → Tietoja → Sähköposti:</p>
+                    <p class="mt-2 font-mono text-sm bg-slate-100 px-3 py-2 rounded-xl" id="email">asiakaspalvelu@sivuhustle.fi</p>
+                    <button type="button" onclick="navigator.clipboard.writeText('asiakaspalvelu@sivuhustle.fi')" class="mt-2 text-xs font-semibold text-emerald-600">Kopioi</button>
+                    <p class="text-xs text-slate-400 mt-2">Vahvistuslinkki tulee Gmailiisi.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="mt-6 p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-sm text-emerald-900">
+            <strong>Minä tein jo:</strong> sivuston yhteystiedot, käyttöehdot, tietosuojaseloste ja kiitos-sivu käyttävät <code>asiakaspalvelu@sivuhustle.fi</code>.
+        </div>
+    </div>
+</body>
+</html>

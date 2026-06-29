@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RS9RZ94FCY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-RS9RZ94FCY');
+    </script>
+    <script src="js/config.js"></script>
+    <script src="js/attribution.js"></script>
+    <script src="js/meta-pixel.js"></script>
+    <script src="js/site.js"></script>
+    <title>Opas lähetetty • SivuHustle.fi</title>
+    <meta name="robots" content="noindex">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen">
+    <nav class="bg-white border-b">
+        <div class="max-w-3xl mx-auto px-6 h-16 flex items-center">
+            <a href="index.html" class="font-bold tracking-tighter">SivuHustle<span class="text-emerald-600">.fi</span></a>
+        </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-6 py-12">
+        <div class="text-center">
+            <div class="mx-auto w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-6">
+                <i class="fa-solid fa-envelope-circle-check text-3xl"></i>
+            </div>
+            <h1 class="text-3xl font-bold tracking-tight">Kiitos, <span id="name">ystävä</span>!</h1>
+            <p class="text-slate-600 mt-3">7 päivän opas on valmis. Tarkista myös sähköpostisi — lähetimme linkin ja seuraavat askeleet.</p>
+        </div>
+
+        <div class="mt-10 grid md:grid-cols-2 gap-5">
+            <a href="kaynnistys-opas.html?lead=1" class="bg-white border-2 border-emerald-500 rounded-3xl p-6 hover:bg-emerald-50 transition block">
+                <div class="text-emerald-600 text-xs font-bold uppercase tracking-widest">Vaihe 1</div>
+                <h2 class="text-xl font-semibold mt-2">Avaa 7 päivän opas</h2>
+                <p class="text-sm text-slate-600 mt-2">Aloita heti — niche, sisältö ja ensimmäinen tulolähde.</p>
+                <span class="inline-block mt-4 text-sm font-bold text-emerald-700">Avaa opas →</span>
+            </a>
+            <a href="index.html#laskuri" class="bg-white border rounded-3xl p-6 hover:border-slate-300 transition block">
+                <div class="text-slate-400 text-xs font-bold uppercase tracking-widest">Vaihe 2</div>
+                <h2 class="text-xl font-semibold mt-2">Laske potentiaalisi</h2>
+                <p class="text-sm text-slate-600 mt-2">Ilmainen laskuri näyttää realistisen kuukausitulon.</p>
+                <span class="inline-block mt-4 text-sm font-bold text-emerald-700">Kokeile laskuria →</span>
+            </a>
+        </div>
+
+        <div class="mt-8 bg-gradient-to-br from-emerald-800 to-slate-900 text-white rounded-3xl p-8">
+            <div class="flex flex-wrap items-start justify-between gap-4">
+                <div>
+                    <p class="text-emerald-300 text-xs font-bold uppercase tracking-widest">Nopein tie tuloon</p>
+                    <h2 class="text-2xl font-bold mt-2">Pro: kaikki oppaat + mallit</h2>
+                    <p class="text-emerald-100 text-sm mt-2 max-w-md">Jäsenet, jotka avaavat Pro:n ensimmäisen viikon aikana, säästävät keskimäärin 4–6 viikkoa kokeilua. Yksi jäsenyys — kaikki oppaat.</p>
+                    <ul class="text-sm text-emerald-100 mt-4 space-y-1">
+                        <li>✓ Täydet oppaat (affiliate, digituote, blogi…)</li>
+                        <li>✓ 24 kk laskuri + CSV-vienti</li>
+                        <li>✓ Valmiit mallit ja linkkilistat</li>
+                    </ul>
+                </div>
+                <div class="text-right shrink-0">
+                    <div class="text-4xl font-bold">7,90 €</div>
+                    <div class="text-emerald-300 text-sm">/ kk · peru milloin tahansa</div>
+                </div>
+            </div>
+            <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                <button type="button" id="pro-btn" class="flex-1 py-3.5 bg-white text-emerald-900 font-bold rounded-2xl hover:bg-emerald-50">Aloita Pro nyt</button>
+                <a href="index.html#hinnat" class="flex-1 py-3.5 border border-white/30 text-center font-semibold rounded-2xl hover:bg-white/10">Vertaa vuosi / Lifetime</a>
+            </div>
+        </div>
+
+        <p class="text-center text-xs text-slate-400 mt-8">Etkö saanut sähköpostia? Tarkista roskaposti tai kirjoita asiakaspalvelu@sivuhustle.fi</p>
+    </main>
+
+    <script>
+        (function () {
+            const params = new URLSearchParams(location.search);
+            const name = params.get('name') || params.get('n') || 'ystävä';
+            document.getElementById('name').textContent = decodeURIComponent(name);
+
+            if (typeof gtag === 'function') {
+                gtag('event', 'generate_lead', { method: 'pdf_thankyou' });
+            }
+            if (typeof trackMeta === 'function') {
+                trackMeta('Lead', { content_name: 'pdf_thankyou' });
+            }
+
+            document.getElementById('pro-btn').onclick = function () {
+                const url = (window.SIVUHUSTLE && window.SIVUHUSTLE.STRIPE && window.SIVUHUSTLE.STRIPE.proMonthly) || 'index.html#hinnat';
+                if (typeof gtag === 'function') gtag('event', 'begin_checkout', { item_name: 'pro_monthly', placement: 'lead_thankyou' });
+                if (typeof trackMeta === 'function') trackMeta('InitiateCheckout', { content_name: 'pro_monthly', value: 7.9, currency: 'EUR' });
+                location.href = url;
+            };
+        })();
+    </script>
+</body>
+</html>

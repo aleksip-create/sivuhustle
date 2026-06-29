@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <title>SivuHustle.fi — Profiilikuva</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&display=swap');
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            background: #e2e8f0;
+            font-family: system-ui, sans-serif;
+            padding: 24px;
+        }
+        .preview-wrap { position: relative; }
+        .preview-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            box-shadow: inset 0 0 0 3px rgba(15, 23, 42, 0.15);
+            pointer-events: none;
+        }
+        canvas {
+            display: block;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            box-shadow: 0 20px 40px rgb(15 23 42 / 0.2);
+        }
+        .hint {
+            max-width: 420px;
+            text-align: center;
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+        button, a.btn {
+            appearance: none;
+            border: none;
+            cursor: pointer;
+            padding: 14px 24px;
+            border-radius: 16px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .primary {
+            background: #059669;
+            color: white;
+        }
+        .primary:hover { background: #047857; }
+        .secondary {
+            background: white;
+            color: #0f172a;
+            border: 1px solid #cbd5e1;
+        }
+        .size-note {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-wrap">
+        <canvas id="logo" width="1080" height="1080" aria-label="SivuHustle.fi profiilikuva"></canvas>
+    </div>
+    <p class="hint">Esikatselu on pyöreä kuten Facebookissa. Lataa PNG ja lataa se Facebook-sivun profiilikuvaksi.</p>
+    <div class="actions">
+        <button type="button" class="primary" id="download">Lataa PNG (1080×1080)</button>
+        <a class="btn secondary" href="assets/logo.svg" download="sivuhustle-logo.svg">Lataa SVG</a>
+    </div>
+    <p class="size-note">Facebook suositus: vähintään 400×400 px · tämä on 1080×1080</p>
+
+    <script>
+        const canvas = document.getElementById('logo');
+        const ctx = canvas.getContext('2d');
+        const size = 1080;
+
+        function drawLogo() {
+            const grad = ctx.createLinearGradient(0, 0, size, size);
+            grad.addColorStop(0, '#0f172a');
+            grad.addColorStop(1, '#134e4a');
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, size, size);
+
+            const box = size * 0.52;
+            const r = box * 0.22;
+            const x = (size - box) / 2;
+            const y = (size - box) / 2;
+
+            ctx.fillStyle = '#0f172a';
+            ctx.strokeStyle = '#334155';
+            ctx.lineWidth = size * 0.006;
+            roundRect(ctx, x, y, box, box, r);
+            ctx.fill();
+            ctx.stroke();
+
+            const chart = new Path2D('M' + (x + box * 0.14) + ',' + (y + box * 0.72) +
+                ' L' + (x + box * 0.34) + ',' + (y + box * 0.38) +
+                ' L' + (x + box * 0.52) + ',' + (y + box * 0.52) +
+                ' L' + (x + box * 0.66) + ',' + (y + box * 0.22) +
+                ' L' + (x + box * 0.86) + ',' + (y + box * 0.72) + ' Z');
+            ctx.fillStyle = '#10b981';
+            ctx.fill(chart);
+
+            const dotX = x + box * 0.66;
+            const dotY = y + box * 0.22;
+            ctx.beginPath();
+            ctx.arc(dotX, dotY, size * 0.022, 0, Math.PI * 2);
+            ctx.fillStyle = '#6ee7b7';
+            ctx.fill();
+        }
+
+        function roundRect(c, x, y, w, h, r) {
+            c.beginPath();
+            c.moveTo(x + r, y);
+            c.arcTo(x + w, y, x + w, y + h, r);
+            c.arcTo(x + w, y + h, x, y + h, r);
+            c.arcTo(x, y + h, x, y, r);
+            c.arcTo(x, y, x + w, y, r);
+            c.closePath();
+        }
+
+        drawLogo();
+
+        document.getElementById('download').addEventListener('click', function () {
+            const link = document.createElement('a');
+            link.download = 'sivuhustle-facebook-profiili.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        });
+    </script>
+</body>
+</html>
