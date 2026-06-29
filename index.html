@@ -27,6 +27,7 @@
     src="https://www.facebook.com/tr?id=1552195963174216&amp;ev=PageView&amp;noscript=1"/></noscript>
     <!-- End Meta Pixel Code -->
     <script src="js/config.js"></script>
+    <script src="js/affiliate.js"></script>
     <script src="js/attribution.js"></script>
     <script src="js/meta-pixel.js"></script>
 
@@ -531,7 +532,7 @@
         </div>
         
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <a href="https://gumroad.com/" onclick="trackAffiliateClick(event, 'gumroad')" rel="sponsored noopener" class="group flex items-center gap-4 border border-slate-200 bg-white rounded-3xl p-5 hover:border-emerald-200 transition-colors">
+            <a data-affiliate="gumroad" href="#" rel="sponsored noopener" class="group flex items-center gap-4 border border-slate-200 bg-white rounded-3xl p-5 hover:border-emerald-200 transition-colors">
                 <div class="w-11 h-11 bg-orange-100 text-orange-600 flex items-center justify-center rounded-2xl flex-shrink-0">
                     <i class="fa-solid fa-store text-xl"></i>
                 </div>
@@ -542,7 +543,7 @@
                 </div>
             </a>
             
-            <a href="https://www.verkkokauppa.com/" onclick="trackAffiliateClick(event, 'verkkokauppa')" rel="sponsored noopener" class="group flex items-center gap-4 border border-slate-200 bg-white rounded-3xl p-5 hover:border-emerald-200 transition-colors">
+            <a data-affiliate="verkkokauppa" href="#" rel="sponsored noopener" class="group flex items-center gap-4 border border-slate-200 bg-white rounded-3xl p-5 hover:border-emerald-200 transition-colors">
                 <div class="w-11 h-11 bg-blue-100 text-blue-600 flex items-center justify-center rounded-2xl flex-shrink-0">
                     <i class="fa-solid fa-shopping-cart text-xl"></i>
                 </div>
@@ -552,7 +553,7 @@
                 </div>
             </a>
             
-            <a href="https://www.booking.com/" onclick="trackAffiliateClick(event, 'booking')" rel="sponsored noopener" class="group flex items-center gap-4 border border-slate-200 bg-white rounded-3xl p-5 hover:border-emerald-200 transition-colors">
+            <a data-affiliate="booking" href="#" rel="sponsored noopener" class="group flex items-center gap-4 border border-slate-200 bg-white rounded-3xl p-5 hover:border-emerald-200 transition-colors">
                 <div class="w-11 h-11 bg-sky-100 text-sky-600 flex items-center justify-center rounded-2xl flex-shrink-0">
                     <i class="fa-solid fa-plane text-xl"></i>
                 </div>
@@ -562,7 +563,7 @@
                 </div>
             </a>
             
-            <a href="https://www.canva.com/pro/" onclick="trackAffiliateClick(event, 'canva')" rel="sponsored noopener" class="group flex items-center gap-4 border border-slate-200 bg-white rounded-3xl p-5 hover:border-emerald-200 transition-colors">
+            <a data-affiliate="canva" href="#" rel="sponsored noopener" class="group flex items-center gap-4 border border-slate-200 bg-white rounded-3xl p-5 hover:border-emerald-200 transition-colors">
                 <div class="w-11 h-11 bg-purple-100 text-purple-600 flex items-center justify-center rounded-2xl flex-shrink-0">
                     <i class="fa-solid fa-palette text-xl"></i>
                 </div>
@@ -572,7 +573,7 @@
                 </div>
             </a>
 
-            <a href="https://www.hostinger.fi/" onclick="trackAffiliateClick(event, 'hostinger')" rel="sponsored noopener" class="group flex items-center gap-4 border border-slate-200 bg-white rounded-3xl p-5 hover:border-emerald-200 transition-colors">
+            <a data-affiliate="hostinger" href="#" rel="sponsored noopener" class="group flex items-center gap-4 border border-slate-200 bg-white rounded-3xl p-5 hover:border-emerald-200 transition-colors">
                 <div class="w-11 h-11 bg-indigo-100 text-indigo-600 flex items-center justify-center rounded-2xl flex-shrink-0">
                     <i class="fa-solid fa-server text-xl"></i>
                 </div>
@@ -582,7 +583,7 @@
                 </div>
             </a>
 
-            <a href="https://www.mailerlite.com/" onclick="trackAffiliateClick(event, 'mailerlite')" rel="sponsored noopener" class="group flex items-center gap-4 border border-slate-200 bg-white rounded-3xl p-5 hover:border-emerald-200 transition-colors">
+            <a data-affiliate="mailerlite" href="#" rel="sponsored noopener" class="group flex items-center gap-4 border border-slate-200 bg-white rounded-3xl p-5 hover:border-emerald-200 transition-colors">
                 <div class="w-11 h-11 bg-rose-100 text-rose-600 flex items-center justify-center rounded-2xl flex-shrink-0">
                     <i class="fa-solid fa-envelope text-xl"></i>
                 </div>
@@ -591,6 +592,10 @@
                     <div class="text-sm text-slate-500">Sähköpostilista ja automaatiot ilmaiseksi alkuun</div>
                 </div>
             </a>
+        </div>
+        <div class="text-center mt-5 flex flex-wrap justify-center gap-4 text-sm">
+            <a href="tyokalut-vertailu.html" class="font-semibold text-emerald-700 hover:text-emerald-800">Lue täysi työkaluvertailu →</a>
+            <a href="affiliate-liity.html" class="text-slate-500 hover:text-slate-700 text-xs">Affiliate-hakemukset (sinulle)</a>
         </div>
         <div class="text-center text-xs text-slate-400 mt-3">Kaikki linkit ovat affiliate-linkkejä. Tuet sivuston ylläpitoa ostamalla näiden kautta.</div>
     </section>
@@ -1475,27 +1480,9 @@
             });
         }
         
-        const AFFILIATE_URLS = (window.SIVUHUSTLE && window.SIVUHUSTLE.AFFILIATE_LINKS) || {
-            gumroad: 'https://gumroad.com/',
-            verkkokauppa: 'https://www.verkkokauppa.com/',
-            booking: 'https://www.booking.com/',
-            canva: 'https://www.canva.com/pro/',
-            hostinger: 'https://www.hostinger.fi/',
-            mailerlite: 'https://www.mailerlite.com/'
-        };
-
         let calcInteractions = 0;
         let stickyCtaDismissed = false;
         let authCheckComplete = false;
-
-        function trackAffiliateClick(event, tool) {
-            if (event) event.preventDefault();
-            const url = AFFILIATE_URLS[tool];
-            if (!url) return;
-            if (typeof gtag === 'function') gtag('event', 'affiliate_click', { tool: tool });
-            if (typeof trackMeta === 'function') trackMeta('ViewContent', { content_name: tool });
-            window.open(url, '_blank', 'noopener,noreferrer');
-        }
 
         function hideStickyCta() {
             stickyCtaDismissed = true;

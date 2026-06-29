@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Affiliate-ohjelmat — liity näihin | SivuHustle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50">
+    <div class="max-w-lg mx-auto px-6 py-10">
+        <a href="index.html" class="text-sm text-emerald-600 font-semibold">← Etusivulle</a>
+        <div class="mt-6 bg-white border rounded-3xl p-8">
+            <p class="text-emerald-600 text-xs font-bold uppercase tracking-widest">Sinulle — 15 min</p>
+            <h1 class="text-2xl font-bold mt-2">Liity affiliate-ohjelmiin</h1>
+            <p class="text-slate-600 text-sm mt-2">Näitä ei voi tehdä automaattisesti — vaatii sinun GitHub/Vercel-tason tilin. Hakemuksessa mainitse sivusto: <strong>https://www.sivuhustle.fi</strong></p>
+        </div>
+
+        <div class="mt-4 space-y-3" id="programs"></div>
+
+        <div class="mt-8 p-5 bg-amber-50 border border-amber-200 rounded-2xl text-sm text-amber-900">
+            <strong>Kun saat linkit:</strong> lähetä ne Grokille tai liitä <code class="bg-white px-1 rounded">js/config.js</code> → <code>AFFILIATE.[nimi].url</code> → push GitHubiin.
+        </div>
+    </div>
+    <script src="js/config.js"></script>
+    <script>
+        const order = ['hostinger', 'canva', 'mailerlite', 'gumroad', 'verkkokauppa', 'booking'];
+        const labels = {
+            hostinger: 'Hostinger',
+            canva: 'Canva Pro',
+            mailerlite: 'MailerLite',
+            gumroad: 'Gumroad',
+            verkkokauppa: 'Verkkokauppa.com',
+            booking: 'Booking.com'
+        };
+        const box = document.getElementById('programs');
+        const aff = (window.SIVUHUSTLE && window.SIVUHUSTLE.AFFILIATE) || {};
+        order.forEach(function (key, i) {
+            const p = aff[key] || {};
+            const done = !!(p.url && p.url.trim());
+            const el = document.createElement('div');
+            el.className = 'bg-white border rounded-2xl p-5';
+            el.innerHTML = '<div class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center text-sm font-bold">' + (i+1) + '</span><div class="flex-1"><div class="font-bold">' + labels[key] + '</div><div class="text-xs text-slate-500">' + (p.commission || '') + '</div></div><span class="text-xs font-bold ' + (done ? 'text-emerald-600' : 'text-slate-400') + '">' + (done ? 'Linkki OK' : 'Odottaa') + '</span></div><a href="' + (p.signup || '#') + '" target="_blank" rel="noopener" class="mt-3 block w-full text-center py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-xl">Avaa hakemus →</a>';
+            box.appendChild(el);
+        });
+    </script>
+</body>
+</html>
