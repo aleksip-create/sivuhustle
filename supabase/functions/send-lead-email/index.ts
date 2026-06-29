@@ -21,7 +21,8 @@ function welcomeHtml(firstName: string) {
     <ol style="color:#475569;font-size:14px;line-height:1.8;padding-left:20px">
       <li>Avaa <a href="${home}/kaynnistys-opas.html?lead=1" style="color:#059669">7 päivän käynnistysopas</a></li>
       <li>Kokeile <a href="${home}/#laskuri" style="color:#059669">ilmaista tulolaskuria</a></li>
-      <li>Valitse polku: affiliate, digituote tai blogi</li>
+      <li>Valitse polku: <a href="${home}/affiliate-opas.html" style="color:#059669">affiliate</a>, <a href="${home}/digituote-opas.html" style="color:#059669">digituote</a> tai <a href="${home}/blogi-opas.html" style="color:#059669">blogi</a></li>
+      <li>Työkalut: <a href="${home}/tyokalut-vertailu.html" style="color:#059669">suositellut alustat</a> (hosting, Canva, Gumroad…)</li>
     </ol>
     <div style="background:#ecfdf5;border:1px solid #a7f3d0;border-radius:12px;padding:20px;margin-top:24px">
       <p style="margin:0;font-size:14px;color:#065f46"><strong>Haluat nopeuttaa?</strong> Pro-jäsenyys sisältää kaikki oppaat, mallit ja 24 kk laskurin.</p>
