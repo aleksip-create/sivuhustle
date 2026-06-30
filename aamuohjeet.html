@@ -19,6 +19,20 @@
             <p class="text-xs text-emerald-300/80 mt-4">Päivitetty: 30.6.2026 · Yötyö tehty automaattisesti</p>
         </div>
 
+        <!-- Leads table missing fix -->
+        <section class="mt-6 bg-amber-50 border-2 border-amber-400 rounded-3xl p-6">
+            <h2 class="font-bold text-lg text-amber-900 flex items-center gap-2">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                Ei leads-taulua? Tee tämä ensin
+            </h2>
+            <p class="text-sm text-amber-900/80 mt-2">Taulu pitää luoda kerran SQL Editorissa. <a href="seuraavat-askeleet.html" class="font-semibold underline">Vaihe 2 seuraavat-askeleet.html</a> — tai:</p>
+            <ol class="text-sm text-amber-900/80 mt-3 space-y-1 list-decimal list-inside">
+                <li><a href="https://supabase.com/dashboard/project/zjpvxacinryojpqwdrti/sql/new" class="font-semibold underline" target="_blank" rel="noopener">SQL Editor</a> → New query</li>
+                <li>Kopioi SQL → Run → Table Editor → <strong>public → leads</strong></li>
+            </ol>
+            <button type="button" onclick="copyLeadsSql()" class="mt-4 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold rounded-xl">Kopioi leads-SQL</button>
+        </section>
+
         <!-- Quick checklist -->
         <section class="mt-6 bg-white border-2 border-emerald-500 rounded-3xl p-6">
             <h2 class="font-bold text-lg flex items-center gap-2">
@@ -151,5 +165,43 @@
             <a href="https://www.sivuhustle.fi/#ilmainen-opas" class="flex-1 text-center py-3 bg-emerald-600 text-white rounded-2xl text-sm font-semibold hover:bg-emerald-700">Testaa lead-lomake</a>
         </div>
     </div>
+    <script>
+        var LEADS_SQL = `create table if not exists public.leads (
+  id uuid default gen_random_uuid() primary key,
+  email text not null,
+  name text,
+  source text default 'pdf',
+  utm_source text,
+  utm_medium text,
+  utm_campaign text,
+  utm_content text,
+  landing_page text,
+  created_at timestamptz default now()
+);
+
+create unique index if not exists leads_email_source_idx on public.leads (email, source);
+create index if not exists leads_utm_campaign_idx on public.leads (utm_campaign);
+
+alter table public.leads enable row level security;
+
+drop policy if exists "Allow anonymous lead insert" on public.leads;
+drop policy if exists "No public read on leads" on public.leads;
+
+create policy "Allow anonymous lead insert"
+  on public.leads for insert
+  to anon, authenticated
+  with check (true);
+
+create policy "No public read on leads"
+  on public.leads for select
+  to anon, authenticated
+  using (false);`;
+
+        function copyLeadsSql() {
+            navigator.clipboard.writeText(LEADS_SQL.trim()).then(function () {
+                alert('SQL kopioitu! Liitä Supabase SQL Editoriin ja paina Run.');
+            });
+        }
+    </script>
 </body>
 </html>
