@@ -100,24 +100,28 @@
         </section>
 
         <section class="mt-4 bg-amber-50 border-2 border-amber-400 rounded-3xl p-6">
-            <h2 class="font-bold text-lg text-amber-900">Kirjautumislinkit (Pro) — korjaa SMTP kerran</h2>
-            <p class="text-sm text-amber-900/80 mt-1">Virhe "Toiminto epäonnistui" = Supabase ei lähetä auth-sähköpostia. Lead-sähköposti (Resend) toimii — kirjautuminen käyttää eri järjestelmää.</p>
-            <ol class="text-sm text-slate-700 mt-4 space-y-2 list-decimal list-inside">
-                <li>Avaa <a href="https://supabase.com/dashboard/project/zjpvxacinryojpqwdrti/auth/smtp" class="text-emerald-600 font-semibold" target="_blank" rel="noopener">Supabase → Authentication → SMTP</a></li>
-                <li>Ota käyttöön <strong>Custom SMTP</strong></li>
-                <li>Täytä Resend SMTP:
-                    <ul class="mt-2 ml-4 space-y-1 text-xs font-mono bg-white border rounded-xl p-3">
-                        <li>Host: smtp.resend.com</li>
-                        <li>Port: 465 (SSL)</li>
-                        <li>User: resend</li>
-                        <li>Password: Resend API key (re_...)</li>
-                        <li>Sender: onboarding@resend.dev (tai asiakaspalvelu@sivuhustle.fi kun domain vahvistettu)</li>
-                    </ul>
-                </li>
-                <li>Samaan aikaan: <a href="https://supabase.com/dashboard/project/zjpvxacinryojpqwdrti/auth/url-configuration" class="text-emerald-600 font-semibold" target="_blank" rel="noopener">URL Configuration</a> → Site URL: <code>https://www.sivuhustle.fi</code> → Redirect URLs: <code>https://www.sivuhustle.fi/**</code></li>
-                <li>Testaa: sivustolla "Lähetä kirjautumislinkki" samalla sähköpostilla kuin Resend-tili</li>
+            <h2 class="font-bold text-lg text-amber-900">Kirjautumislinkit — tee tämä (SMTP ei toiminut)</h2>
+            <p class="text-sm text-amber-900/80 mt-1"><code>send-email</code> Edge Function on deployattu. Aktivoi Auth Hook — sitten Resend lähettää kirjautumislinkit (sama kuin lead-sähköposti).</p>
+
+            <p class="text-sm font-bold text-amber-900 mt-4">A) Nopein nyt — kirjaudu salasanalla (2 min)</p>
+            <ol class="text-sm text-slate-700 mt-2 space-y-1 list-decimal list-inside">
+                <li><a href="https://supabase.com/dashboard/project/zjpvxacinryojpqwdrti/auth/users" class="text-emerald-600 font-semibold" target="_blank" rel="noopener">Authentication → Users</a></li>
+                <li><strong>Add user</strong> → Create new user</li>
+                <li>Email: <strong>pessi_6@hotmail.com</strong> (tai Stripe-maksun sähköposti)</li>
+                <li>Password: valitse salasana (esim. 8+ merkkiä) → Auto Confirm User: <strong>ON</strong></li>
+                <li>Sivustolla: Kirjaudu → sähköposti + salasana</li>
             </ol>
-            <p class="text-xs text-slate-600 mt-3"><strong>Pikakorjaus ilman SMTP:</strong> Supabase → Authentication → Users → Add user (sähköposti + salasana) → kirjaudu salasanalla sivustolla.</p>
+
+            <p class="text-sm font-bold text-amber-900 mt-5">B) Korjaa magic link (kerran, 5 min)</p>
+            <ol class="text-sm text-slate-700 mt-2 space-y-2 list-decimal list-inside">
+                <li>Avaa <a href="https://supabase.com/dashboard/project/zjpvxacinryojpqwdrti/auth/hooks" class="text-emerald-600 font-semibold" target="_blank" rel="noopener">Authentication → Hooks</a></li>
+                <li><strong>Send Email</strong> → Create hook → Type: <strong>HTTPS</strong></li>
+                <li>URL: <code class="bg-white px-1 rounded text-xs">https://zjpvxacinryojpqwdrti.supabase.co/functions/v1/send-email</code></li>
+                <li>Kopioi näytettävä <strong>Secret</strong> (alkaa <code>v1,whsec_...</code>)</li>
+                <li>PowerShell:<br><code class="block mt-1 bg-white p-2 rounded-lg text-xs border">$env:LOCALAPPDATA\supabase-cli\supabase.exe secrets set SEND_EMAIL_HOOK_SECRET=v1,whsec_... --project-ref zjpvxacinryojpqwdrti</code></li>
+                <li>URL Configuration: Site URL <code>https://www.sivuhustle.fi</code>, Redirect <code>https://www.sivuhustle.fi/**</code></li>
+                <li>Testaa magic link (sama sähköposti kuin Resend-tili)</li>
+            </ol>
         </section>
 
         <section class="mt-4 bg-emerald-50 border-2 border-emerald-400 rounded-3xl p-6">
