@@ -1905,9 +1905,7 @@
             if (typeof gtag === 'function') {
                 gtag('event', 'generate_lead', Object.assign({ method: 'pdf' }, attr));
             }
-            if (typeof trackMeta === 'function') {
-                trackMeta('Lead', { content_name: '7_paivan_opas' });
-            }
+            /* Lead lähetetään kiitos-lataus.html — helpompi Meta-konversiolle (URL-sääntö) */
 
             const thankYou = 'kiitos-lataus.html?name=' + encodeURIComponent(firstName);
             window.location.href = thankYou;
