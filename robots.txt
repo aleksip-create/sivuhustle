@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /hallinta-k9m2.html
+Disallow: /seuraavat-askeleet.html
+Disallow: /affiliate-liity.html
+Disallow: /meta-kampanja.html
 
 Sitemap: https://www.sivuhustle.fi/sitemap.xml

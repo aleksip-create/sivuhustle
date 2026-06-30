@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Hallinta — aamuseuranta | SivuHustle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-900">
+    <div class="max-w-2xl mx-auto px-6 py-10">
+        <p class="text-xs text-slate-400">Yksityinen — älä jaa linkkiä. Kirjanmerkki tähän sivuun.</p>
+
+        <div class="mt-4 bg-gradient-to-br from-emerald-800 to-slate-900 text-white rounded-3xl p-8">
+            <p class="text-emerald-300 text-xs font-bold uppercase tracking-widest">Hyvää huomenta</p>
+            <h1 class="text-3xl font-bold mt-2">Aamurutiini — 5 minuuttia</h1>
+            <p class="text-emerald-100 text-sm mt-2">Sivuston omistajan seuranta. Julkinen versio: <a href="aamuohjeet.html" class="underline text-emerald-300">aamuohjeet.html</a></p>
+        </div>
+
+        <section class="mt-6 bg-amber-50 border-2 border-amber-400 rounded-3xl p-6">
+            <h2 class="font-bold text-lg text-amber-900 flex items-center gap-2">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                Ei leads-taulua? Tee tämä ensin
+            </h2>
+            <p class="text-sm text-amber-900/80 mt-2">Taulu pitää luoda kerran SQL Editorissa. <a href="seuraavat-askeleet.html" class="font-semibold underline">seuraavat-askeleet.html</a> vaihe 2 — tai:</p>
+            <ol class="text-sm text-amber-900/80 mt-3 space-y-1 list-decimal list-inside">
+                <li><a href="https://supabase.com/dashboard/project/zjpvxacinryojpqwdrti/sql/new" class="font-semibold underline" target="_blank" rel="noopener">SQL Editor</a> → New query</li>
+                <li>Kopioi SQL → Run → Table Editor → <strong>public → leads</strong></li>
+            </ol>
+            <button type="button" onclick="copyLeadsSql()" class="mt-4 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold rounded-xl">Kopioi leads-SQL</button>
+        </section>
+
+        <section class="mt-6 bg-white border-2 border-emerald-500 rounded-3xl p-6">
+            <h2 class="font-bold text-lg flex items-center gap-2">
+                <i class="fa-solid fa-list-check text-emerald-600"></i>
+                Tänään (ruksaa mielessä)
+            </h2>
+            <ul class="mt-4 space-y-3 text-sm">
+                <li class="flex gap-3"><span class="text-emerald-600 font-bold">1.</span> Meta Ads Manager → eilen Leadit ja kulutus (tavoite &lt; 2 €/Lead)</li>
+                <li class="flex gap-3"><span class="text-emerald-600 font-bold">2.</span> Supabase → leads-taulu → uusia rivejä? Mistä UTM (Meta vs orgaaninen)</li>
+                <li class="flex gap-3"><span class="text-emerald-600 font-bold">3.</span> Stripe → uusia maksuja? Pro-kuukausi / vuosi / Lifetime</li>
+                <li class="flex gap-3"><span class="text-emerald-600 font-bold">4.</span> Vercel → viimeisin deploy vihreä? (GitHub push käynnistää automaattisesti)</li>
+                <li class="flex gap-3"><span class="text-emerald-600 font-bold">5.</span> Jos CTR &lt; 0,8 % kolme päivää → vaihda mainostekstiä</li>
+            </ul>
+        </section>
+
+        <section class="mt-4 bg-white border rounded-3xl p-6">
+            <h2 class="font-bold text-lg">Seurantapaneelit</h2>
+            <div class="mt-4 grid gap-3">
+                <a href="https://adsmanager.facebook.com" target="_blank" rel="noopener" class="flex items-center gap-4 p-4 border rounded-2xl hover:border-violet-300 hover:bg-violet-50 transition">
+                    <div class="w-10 h-10 bg-violet-100 text-violet-700 rounded-xl flex items-center justify-center"><i class="fa-brands fa-meta"></i></div>
+                    <div class="flex-1"><div class="font-semibold">Meta Ads Manager</div><div class="text-xs text-slate-500">~12 €/pv · Kampanja 1</div></div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-slate-400 text-sm"></i>
+                </a>
+                <a href="https://business.facebook.com/events_manager2/list/pixel/1552195963174216" target="_blank" rel="noopener" class="flex items-center gap-4 p-4 border rounded-2xl hover:border-violet-300 hover:bg-violet-50 transition">
+                    <div class="w-10 h-10 bg-violet-100 text-violet-700 rounded-xl flex items-center justify-center"><i class="fa-solid fa-bullseye"></i></div>
+                    <div class="flex-1"><div class="font-semibold">Meta Pixel</div><div class="text-xs text-slate-500">Lead, InitiateCheckout</div></div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-slate-400 text-sm"></i>
+                </a>
+                <a href="https://analytics.google.com/analytics/web/#/p0/realtime" target="_blank" rel="noopener" class="flex items-center gap-4 p-4 border rounded-2xl hover:border-amber-300 hover:bg-amber-50 transition">
+                    <div class="w-10 h-10 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center"><i class="fa-solid fa-chart-line"></i></div>
+                    <div class="flex-1"><div class="font-semibold">GA4 Realtime</div><div class="text-xs text-slate-500">G-RS9RZ94FCY</div></div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-slate-400 text-sm"></i>
+                </a>
+                <a href="https://supabase.com/dashboard/project/zjpvxacinryojpqwdrti/editor" target="_blank" rel="noopener" class="flex items-center gap-4 p-4 border rounded-2xl hover:border-emerald-300 hover:bg-emerald-50 transition">
+                    <div class="w-10 h-10 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center"><i class="fa-solid fa-database"></i></div>
+                    <div class="flex-1"><div class="font-semibold">Supabase — leads</div><div class="text-xs text-slate-500">public → leads</div></div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-slate-400 text-sm"></i>
+                </a>
+                <a href="https://dashboard.stripe.com/payments" target="_blank" rel="noopener" class="flex items-center gap-4 p-4 border rounded-2xl hover:border-indigo-300 hover:bg-indigo-50 transition">
+                    <div class="w-10 h-10 bg-indigo-100 text-indigo-700 rounded-xl flex items-center justify-center"><i class="fa-solid fa-credit-card"></i></div>
+                    <div class="flex-1"><div class="font-semibold">Stripe</div><div class="text-xs text-slate-500">Pro-maksut</div></div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-slate-400 text-sm"></i>
+                </a>
+                <a href="https://vercel.com/dashboard" target="_blank" rel="noopener" class="flex items-center gap-4 p-4 border rounded-2xl hover:border-slate-400 hover:bg-slate-50 transition">
+                    <div class="w-10 h-10 bg-slate-100 text-slate-700 rounded-xl flex items-center justify-center"><i class="fa-solid fa-rocket"></i></div>
+                    <div class="flex-1"><div class="font-semibold">Vercel</div><div class="text-xs text-slate-500">aleksip-create/sivuhustle</div></div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-slate-400 text-sm"></i>
+                </a>
+            </div>
+        </section>
+
+        <section class="mt-4 bg-white border rounded-3xl p-6">
+            <h2 class="font-bold text-lg text-violet-900">Meta-mainos — päätökset</h2>
+            <div class="mt-4 space-y-4 text-sm">
+                <div class="p-4 bg-violet-50 border border-violet-200 rounded-2xl">
+                    <strong class="text-violet-900">Alle 20 Lead-tapahtumaa:</strong>
+                    <p class="text-slate-600 mt-1">Pidä cold-mainos 12 €/pv. Älä nosta budjettia ennen tasaisia leadejä.</p>
+                </div>
+                <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-2xl">
+                    <strong class="text-emerald-900">20+ Lead-tapahtumaa:</strong>
+                    <p class="text-slate-600 mt-1">Remarketing: <a href="meta-kampanja.html" class="text-emerald-600 font-semibold underline">meta-kampanja.html</a></p>
+                </div>
+                <div class="p-4 bg-amber-50 border border-amber-200 rounded-2xl">
+                    <strong class="text-amber-900">Lead &gt; 3 € / 3 pv:</strong>
+                    <p class="text-slate-600 mt-1">Pysäytä, tarkista landing ja mainosteksti.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-4 bg-white border rounded-3xl p-6">
+            <h2 class="font-bold text-lg">Affiliate + Resend</h2>
+            <ul class="text-sm text-slate-600 mt-3 space-y-2">
+                <li>• <a href="affiliate-liity.html" class="text-emerald-600 font-semibold">affiliate-liity.html</a> → hae ohjelmat → config.js</li>
+                <li>• Resend: <code class="bg-slate-100 px-1 rounded text-xs">supabase secrets set RESEND_API_KEY=re_...</code></li>
+            </ul>
+        </section>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="seuraavat-askeleet.html" class="flex-1 text-center py-3 border rounded-2xl text-sm font-semibold hover:bg-white">Tehtävälista</a>
+            <a href="https://www.sivuhustle.fi/#ilmainen-opas" class="flex-1 text-center py-3 bg-emerald-600 text-white rounded-2xl text-sm font-semibold hover:bg-emerald-700">Testaa lead-lomake</a>
+        </div>
+    </div>
+    <script>
+        var LEADS_SQL = `create table if not exists public.leads (
+  id uuid default gen_random_uuid() primary key,
+  email text not null,
+  name text,
+  source text default 'pdf',
+  utm_source text,
+  utm_medium text,
+  utm_campaign text,
+  utm_content text,
+  landing_page text,
+  created_at timestamptz default now()
+);
+
+create unique index if not exists leads_email_source_idx on public.leads (email, source);
+create index if not exists leads_utm_campaign_idx on public.leads (utm_campaign);
+
+alter table public.leads enable row level security;
+
+drop policy if exists "Allow anonymous lead insert" on public.leads;
+drop policy if exists "No public read on leads" on public.leads;
+
+create policy "Allow anonymous lead insert"
+  on public.leads for insert
+  to anon, authenticated
+  with check (true);
+
+create policy "No public read on leads"
+  on public.leads for select
+  to anon, authenticated
+  using (false);`;
+
+        function copyLeadsSql() {
+            navigator.clipboard.writeText(LEADS_SQL.trim()).then(function () {
+                alert('SQL kopioitu! Liitä Supabase SQL Editoriin ja paina Run.');
+            });
+        }
+    </script>
+</body>
+</html>
