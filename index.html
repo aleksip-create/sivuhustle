@@ -2121,33 +2121,40 @@
             }
         }
 
-        async function sendMagicLink(email) {
-            const supabase = await getSupabase();
-            if (!supabase) return;
-
-            const { error } = await supabase.auth.signInWithOtp({
-                email,
-                options: { emailRedirectTo: getAuthRedirectUrl() }
-            });
-            if (error) {
-                alert(formatAuthError(error, 'magic'));
-                return;
+        async function sendAuthEmail(email, action) {
+            const redirectTo = getAuthRedirectUrl();
+            try {
+                const res = await fetch(SUPABASE_URL + '/functions/v1/send-login-link', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+                        'apikey': SUPABASE_ANON_KEY
+                    },
+                    body: JSON.stringify({ email: email, action: action, redirect_to: redirectTo })
+                });
+                const data = await res.json().catch(function () { return {}; });
+                if (!res.ok || !data.ok) {
+                    const msg = data.error || data.message || 'Lähetys epäonnistui';
+                    alert('Toiminto epäonnistui: ' + (typeof msg === 'string' ? msg : JSON.stringify(msg)));
+                    return;
+                }
+                if (action === 'recovery') {
+                    alert('Salasanan asetuslinkki lähetetty osoitteeseen ' + email + '. Tarkista sähköpostisi (myös roskaposti).');
+                } else {
+                    alert('Kirjautumislinkki lähetetty osoitteeseen ' + email + '. Tarkista sähköpostisi (myös roskaposti).');
+                }
+            } catch (err) {
+                alert('Toiminto epäonnistui: ' + (err.message || err));
             }
-            alert('Kirjautumislinkki lähetetty osoitteeseen ' + email + '. Tarkista sähköpostisi (myös roskaposti).');
+        }
+
+        async function sendMagicLink(email) {
+            await sendAuthEmail(email, 'magiclink');
         }
 
         async function sendPasswordReset(email) {
-            const supabase = await getSupabase();
-            if (!supabase) return;
-
-            const { error } = await supabase.auth.resetPasswordForEmail(email, {
-                redirectTo: getAuthRedirectUrl()
-            });
-            if (error) {
-                alert(formatAuthError(error, 'reset'));
-                return;
-            }
-            alert('Salasanan asetuslinkki lähetetty osoitteeseen ' + email + '. Tarkista sähköpostisi.');
+            await sendAuthEmail(email, 'recovery');
         }
 
         async function register(email, password) {
