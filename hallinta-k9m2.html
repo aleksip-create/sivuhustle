@@ -99,6 +99,27 @@
             </div>
         </section>
 
+        <section class="mt-4 bg-amber-50 border-2 border-amber-400 rounded-3xl p-6">
+            <h2 class="font-bold text-lg text-amber-900">Kirjautumislinkit (Pro) — korjaa SMTP kerran</h2>
+            <p class="text-sm text-amber-900/80 mt-1">Virhe "Toiminto epäonnistui" = Supabase ei lähetä auth-sähköpostia. Lead-sähköposti (Resend) toimii — kirjautuminen käyttää eri järjestelmää.</p>
+            <ol class="text-sm text-slate-700 mt-4 space-y-2 list-decimal list-inside">
+                <li>Avaa <a href="https://supabase.com/dashboard/project/zjpvxacinryojpqwdrti/auth/smtp" class="text-emerald-600 font-semibold" target="_blank" rel="noopener">Supabase → Authentication → SMTP</a></li>
+                <li>Ota käyttöön <strong>Custom SMTP</strong></li>
+                <li>Täytä Resend SMTP:
+                    <ul class="mt-2 ml-4 space-y-1 text-xs font-mono bg-white border rounded-xl p-3">
+                        <li>Host: smtp.resend.com</li>
+                        <li>Port: 465 (SSL)</li>
+                        <li>User: resend</li>
+                        <li>Password: Resend API key (re_...)</li>
+                        <li>Sender: onboarding@resend.dev (tai asiakaspalvelu@sivuhustle.fi kun domain vahvistettu)</li>
+                    </ul>
+                </li>
+                <li>Samaan aikaan: <a href="https://supabase.com/dashboard/project/zjpvxacinryojpqwdrti/auth/url-configuration" class="text-emerald-600 font-semibold" target="_blank" rel="noopener">URL Configuration</a> → Site URL: <code>https://www.sivuhustle.fi</code> → Redirect URLs: <code>https://www.sivuhustle.fi/**</code></li>
+                <li>Testaa: sivustolla "Lähetä kirjautumislinkki" samalla sähköpostilla kuin Resend-tili</li>
+            </ol>
+            <p class="text-xs text-slate-600 mt-3"><strong>Pikakorjaus ilman SMTP:</strong> Supabase → Authentication → Users → Add user (sähköposti + salasana) → kirjaudu salasanalla sivustolla.</p>
+        </section>
+
         <section class="mt-4 bg-emerald-50 border-2 border-emerald-400 rounded-3xl p-6">
             <h2 class="font-bold text-lg text-emerald-900">Sähköposti leadeille — API-avain asetettu</h2>
             <p class="text-sm text-emerald-900/80 mt-1"><code>RESEND_API_KEY</code> on Supabasessa. Lähetys toimii <strong>vain Resend-tilin sähköpostiin</strong> kunnes domain on vahvistettu.</p>

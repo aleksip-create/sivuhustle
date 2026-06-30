@@ -2085,17 +2085,21 @@
         }
 
         function formatAuthError(error, context = 'login') {
-            const msg = (error?.message || '').toLowerCase();
-            if (msg.includes('invalid login credentials') || msg.includes('invalid credentials')) {
+            const raw = (error?.message || error?.msg || error?.error_description || '').toLowerCase();
+            if (raw.includes('invalid login credentials') || raw.includes('invalid credentials')) {
                 return 'Virheellinen sähköposti tai salasana.\n\nOstitko Pro-jäsenyyden Stripellä? Silloin tilillä ei ole vielä salasanaa. Käytä "Lähetä kirjautumislinkki" tai "Aseta salasana".';
             }
-            if (msg.includes('email not confirmed')) {
+            if (raw.includes('email not confirmed')) {
                 return 'Sähköpostia ei ole vahvistettu. Tarkista postilaatikkosi ja klikkaa vahvistuslinkkiä.';
             }
-            if (msg.includes('rate limit')) {
+            if (raw.includes('rate limit')) {
                 return 'Liian monta yritystä. Odota hetki ja yritä uudelleen.';
             }
-            return (context === 'login' ? 'Kirjautuminen epäonnistui: ' : 'Toiminto epäonnistui: ') + (error?.message || 'Tuntematon virhe');
+            if (raw.includes('magic link') || raw.includes('sending') && raw.includes('email') || error?.error_code === 'unexpected_failure') {
+                return 'Sähköpostilinkkiä ei voitu lähettää.\n\nSupabase tarvitsee SMTP-asetukset (Resend). Ohje: hallinta-k9m2.html → Kirjautumislinkit.\n\nTai aseta salasana Supabasessa: Authentication → Users → valitse käyttäjä → Send password recovery.';
+            }
+            const detail = error?.message || error?.msg || error?.code || error?.error_code || 'Tuntematon virhe';
+            return (context === 'login' ? 'Kirjautuminen epäonnistui: ' : 'Toiminto epäonnistui: ') + detail;
         }
 
         async function login(email, password) {
