@@ -99,17 +99,16 @@
             </div>
         </section>
 
-        <section class="mt-4 bg-amber-50 border-2 border-amber-400 rounded-3xl p-6">
-            <h2 class="font-bold text-lg text-amber-900">Sähköposti leadeille — EI vielä päällä</h2>
-            <p class="text-sm text-amber-900/80 mt-1">Tarkistettu: <code>RESEND_API_KEY</code> puuttuu Supabasesta. Lomake toimii, opas on kiitos-sivulla — sähköposti vain pois.</p>
+        <section class="mt-4 bg-emerald-50 border-2 border-emerald-400 rounded-3xl p-6">
+            <h2 class="font-bold text-lg text-emerald-900">Sähköposti leadeille — API-avain asetettu</h2>
+            <p class="text-sm text-emerald-900/80 mt-1"><code>RESEND_API_KEY</code> on Supabasessa. Lähetys toimii <strong>vain Resend-tilin sähköpostiin</strong> kunnes domain on vahvistettu.</p>
             <ol class="text-sm text-slate-700 mt-4 space-y-2 list-decimal list-inside">
-                <li>Mene <a href="https://resend.com/signup" class="text-emerald-600 font-semibold" target="_blank" rel="noopener">resend.com</a> → luo tili (sama sähköposti jolla testaat)</li>
-                <li><strong>API Keys</strong> → Create → kopioi avain (<code>re_...</code>)</li>
-                <li>PowerShell:<br><code class="block mt-1 bg-white p-2 rounded-lg text-xs border">cd C:\temp\sivuhustle-db</code><code class="block mt-1 bg-white p-2 rounded-lg text-xs border">$env:LOCALAPPDATA\supabase-cli\supabase.exe secrets set RESEND_API_KEY=re_KOPIOITU_AVAIN --project-ref zjpvxacinryojpqwdrti</code></li>
-                <li>Testaa lomake uudelleen <strong>samaan sähköpostiin</strong> kuin Resend-tili</li>
+                <li>Testaa lomake osoitteella <strong>pessi_6@hotmail.com</strong> (Resend-tilin sähköposti)</li>
+                <li>Tarkista posti + roskaposti — aihe: <em>”…tässä 7 päivän sivuhustle-opas”</em></li>
+                <li>Kaikille muille osoitteille: <a href="https://resend.com/domains" class="text-emerald-600 font-semibold" target="_blank" rel="noopener">Resend → Domains</a> → lisää <strong>sivuhustle.fi</strong> (DNS-tietueet domain-palvelusta)</li>
+                <li>Domainin jälkeen päivitä lähettäjä Edge Functionissa → <code>asiakaspalvelu@sivuhustle.fi</code></li>
             </ol>
-            <p class="text-xs text-slate-600 mt-3 bg-white border rounded-xl p-3"><strong>Huom:</strong> Ilman domain-vahvistusta Resend lähettää vain Resend-tilisi sähköpostiin. Myöhemmin: Resend → Domains → lisää <strong>sivuhustle.fi</strong> → lähettäjä <code>asiakaspalvelu@sivuhustle.fi</code></p>
-            <p class="text-xs mt-2">Kun avain on asetettu, lähetä avain Grokille niin testaan lähetyksen.</p>
+            <p class="text-xs text-amber-800 bg-amber-50 border border-amber-200 rounded-xl p-3 mt-3"><strong>Turvallisuus:</strong> Jos API-avain jaettiin chatissa, luo Resendissä uusi avain ja poista vanha.</p>
         </section>
 
         <section class="mt-4 bg-white border rounded-3xl p-6">
