@@ -99,12 +99,22 @@
             </div>
         </section>
 
+        <section class="mt-4 bg-amber-50 border-2 border-amber-400 rounded-3xl p-6">
+            <h2 class="font-bold text-lg text-amber-900">Sähköposti leadeille — EI vielä päällä</h2>
+            <p class="text-sm text-amber-900/80 mt-1">Tarkistettu: <code>RESEND_API_KEY</code> puuttuu Supabasesta. Lomake toimii, opas on kiitos-sivulla — sähköposti vain pois.</p>
+            <ol class="text-sm text-slate-700 mt-4 space-y-2 list-decimal list-inside">
+                <li>Mene <a href="https://resend.com/signup" class="text-emerald-600 font-semibold" target="_blank" rel="noopener">resend.com</a> → luo tili (sama sähköposti jolla testaat)</li>
+                <li><strong>API Keys</strong> → Create → kopioi avain (<code>re_...</code>)</li>
+                <li>PowerShell:<br><code class="block mt-1 bg-white p-2 rounded-lg text-xs border">cd C:\temp\sivuhustle-db</code><code class="block mt-1 bg-white p-2 rounded-lg text-xs border">$env:LOCALAPPDATA\supabase-cli\supabase.exe secrets set RESEND_API_KEY=re_KOPIOITU_AVAIN --project-ref zjpvxacinryojpqwdrti</code></li>
+                <li>Testaa lomake uudelleen <strong>samaan sähköpostiin</strong> kuin Resend-tili</li>
+            </ol>
+            <p class="text-xs text-slate-600 mt-3 bg-white border rounded-xl p-3"><strong>Huom:</strong> Ilman domain-vahvistusta Resend lähettää vain Resend-tilisi sähköpostiin. Myöhemmin: Resend → Domains → lisää <strong>sivuhustle.fi</strong> → lähettäjä <code>asiakaspalvelu@sivuhustle.fi</code></p>
+            <p class="text-xs mt-2">Kun avain on asetettu, lähetä avain Grokille niin testaan lähetyksen.</p>
+        </section>
+
         <section class="mt-4 bg-white border rounded-3xl p-6">
-            <h2 class="font-bold text-lg">Affiliate + Resend</h2>
-            <ul class="text-sm text-slate-600 mt-3 space-y-2">
-                <li>• <a href="affiliate-liity.html" class="text-emerald-600 font-semibold">affiliate-liity.html</a> → hae ohjelmat → config.js</li>
-                <li>• Resend: <code class="bg-slate-100 px-1 rounded text-xs">supabase secrets set RESEND_API_KEY=re_...</code></li>
-            </ul>
+            <h2 class="font-bold text-lg">Affiliate</h2>
+            <p class="text-sm text-slate-600 mt-1"><a href="affiliate-liity.html" class="text-emerald-600 font-semibold">affiliate-liity.html</a> → hae ohjelmat → liitä linkit config.js:ään</p>
         </section>
 
         <div class="mt-8 flex flex-col sm:flex-row gap-3">
