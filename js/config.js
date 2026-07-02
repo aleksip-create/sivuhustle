@@ -27,7 +27,7 @@ window.SIVUHUSTLE = {
       signup: 'https://www.mailerlite.com/affiliate-program',
       commission: '30 % toistuvasta',
       fallback: 'https://www.mailerlite.com/',
-      url: ''
+      url: 'https://www.mailerlite.com/?linkId=lp_170762&sourceId=aleksi-pessi&tenantId=mailerlite'
     },
     gumroad: {
       signup: 'https://gumroad.com/settings/advanced',
@@ -55,6 +55,6 @@ window.SIVUHUSTLE = {
     booking: 'https://www.booking.com/',
     canva: 'https://www.canva.com/pro/',
     hostinger: 'https://www.hostinger.fi/',
-    mailerlite: 'https://www.mailerlite.com/'
+    mailerlite: 'https://www.mailerlite.com/?linkId=lp_170762&sourceId=aleksi-pessi&tenantId=mailerlite'
   }
 };
