@@ -13,7 +13,8 @@
     const prog = getProgram(tool);
     if (!prog) return null;
     if (prog.url && prog.url.trim()) return prog.url.trim();
-    if (prog.id && prog.build) return prog.build(prog.id.trim());
+    const partnerId = (prog.id && prog.id.trim()) || '';
+    if (partnerId && typeof prog.build === 'function') return prog.build(partnerId);
     return prog.fallback || null;
   }
 

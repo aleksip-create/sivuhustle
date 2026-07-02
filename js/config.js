@@ -44,8 +44,13 @@ window.SIVUHUSTLE = {
     booking: {
       signup: 'https://admin.booking.com/affiliate/',
       commission: '4–12 % majoituksesta',
-      fallback: 'https://www.booking.com/',
-      url: ''
+      fallback: 'https://www.booking.fi/',
+      url: '',
+      // Täytä id kun saat Booking Partner ID:n (aid) — riittää pelkkä numero
+      id: '',
+      build: function (aid) {
+        return 'https://www.booking.com/index.html?aid=' + encodeURIComponent(aid) + '&lang=fi&label=sivuhustle';
+      }
     }
   },
   // Vanha muoto — affiliate.js käyttää AFFILIATE-objektia ensisijaisesti
