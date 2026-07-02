@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Hostinger affiliate — hakemusohje | SivuHustle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+    <div class="max-w-lg mx-auto px-6 py-10">
+        <a href="affiliate-liity.html" class="text-sm text-emerald-600 font-semibold">← Affiliate-lista</a>
+
+        <div class="mt-6 bg-white border rounded-3xl p-8">
+            <p class="text-emerald-600 text-xs font-bold uppercase tracking-widest">~10 minuuttia</p>
+            <h1 class="text-2xl font-bold mt-2">Hostinger affiliate-hakemus</h1>
+            <p class="text-slate-600 text-sm mt-2">Komissio noin <strong>60 % hosting-myynnistä</strong>. Yksi myynti voi maksaa viikon Meta-mainokset.</p>
+        </div>
+
+        <section class="mt-4 bg-white border rounded-3xl p-6">
+            <h2 class="font-bold text-lg">Vaihe 1 — Avaa hakemus</h2>
+            <ol class="mt-3 text-sm text-slate-600 space-y-2 list-decimal list-inside">
+                <li>Mene <a href="https://www.hostinger.com/affiliates" class="text-emerald-600 font-semibold" target="_blank" rel="noopener">hostinger.com/affiliates</a></li>
+                <li>Paina <strong>Join now</strong> / <strong>Sign up</strong></li>
+                <li>Kirjaudu tai luo tili (sama sähköposti kuin muissa palveluissa ok)</li>
+            </ol>
+        </section>
+
+        <section class="mt-4 bg-white border rounded-3xl p-6">
+            <h2 class="font-bold text-lg">Vaihe 2 — Täytä lomake</h2>
+            <p class="text-sm text-slate-600 mt-2">Kentät vaihtelevat — käytä näitä arvoja:</p>
+            <div class="mt-4 space-y-3 text-sm">
+                <div class="p-4 bg-slate-50 rounded-2xl">
+                    <div class="text-xs font-bold text-slate-400 uppercase">Verkkosivusto / URL</div>
+                    <div class="font-mono mt-1 text-emerald-800">https://www.sivuhustle.fi</div>
+                    <button type="button" onclick="copyText('https://www.sivuhustle.fi')" class="mt-2 text-xs font-semibold text-emerald-600">Kopioi</button>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-2xl">
+                    <div class="text-xs font-bold text-slate-400 uppercase">Sivuston kuvaus (englanniksi)</div>
+                    <p class="mt-1 text-slate-700" id="desc-en">Finnish education site about side income: affiliate marketing, digital products, blogging. Free guides, income calculator, and Pro membership. Audience: Finland, 25–55, Finnish language.</p>
+                    <button type="button" onclick="copyBlock('desc-en')" class="mt-2 text-xs font-semibold text-emerald-600">Kopioi</button>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-2xl">
+                    <div class="text-xs font-bold text-slate-400 uppercase">Liikenne / kävijät</div>
+                    <p class="mt-1 text-slate-700">Uusi sivusto, kasvava. Meta-mainonta + orgaaninen. Tavoite 500–2000 kävijää/kk ensimmäisen kuukauden aikana.</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-2xl">
+                    <div class="text-xs font-bold text-slate-400 uppercase">Miten mainostat</div>
+                    <p class="mt-1 text-slate-700">Blog guides, tool comparison pages, email newsletter to leads, social media posts. Honest reviews and tutorials in Finnish.</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-2xl">
+                    <div class="text-xs font-bold text-slate-400 uppercase">Sosiaalinen media (jos kysytään)</div>
+                    <p class="mt-1 text-slate-700">Facebook / LinkedIn — henkilökohtainen profiili ok. Linkki sivustoon biossa tai postauksissa.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-4 bg-white border rounded-3xl p-6">
+            <h2 class="font-bold text-lg">Vaihe 3 — Lähetä ja odota</h2>
+            <ul class="mt-3 text-sm text-slate-600 space-y-2">
+                <li>• Hyväksyntä yleensä <strong>1–5 arkipäivää</strong> (joskus heti)</li>
+                <li>• Tarkista sähköposti + Hostinger affiliate -dashboard</li>
+                <li>• Kun saat linkin → lähetä se Grokille tai liitä itse <code class="bg-slate-100 px-1 rounded">js/config.js</code> → <code>AFFILIATE.hostinger.url</code></li>
+            </ul>
+        </section>
+
+        <section class="mt-4 bg-emerald-50 border border-emerald-200 rounded-3xl p-6 text-sm">
+            <strong class="text-emerald-900">Vinkki:</strong>
+            <p class="text-emerald-900/80 mt-1">Sivustolla on jo Hostinger-mainintoja (<code>tyokalut-vertailu.html</code>, <code>blogi-opas.html</code>). Kun linkki aktivoituu, ne alkavat tuottaa komissiota automaattisesti.</p>
+        </section>
+
+        <a href="https://www.hostinger.com/affiliates" target="_blank" rel="noopener" class="mt-6 block w-full text-center py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-2xl">Avaa Hostinger-hakemus →</a>
+    </div>
+    <script>
+        function copyText(t) {
+            navigator.clipboard.writeText(t).then(function () { alert('Kopioitu!'); });
+        }
+        function copyBlock(id) {
+            copyText(document.getElementById(id).textContent.trim());
+        }
+    </script>
+</body>
+</html>

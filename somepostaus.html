@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Somepostaus — kopioi ja julkaise | SivuHustle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+    <div class="max-w-lg mx-auto px-6 py-10">
+        <a href="hallinta-k9m2.html" class="text-sm text-emerald-600 font-semibold">← Hallinta</a>
+
+        <div class="mt-6 bg-white border rounded-3xl p-8">
+            <p class="text-violet-600 text-xs font-bold uppercase tracking-widest">Ilmainen liikenne</p>
+            <h1 class="text-2xl font-bold mt-2">Valmis somepostaus</h1>
+            <p class="text-slate-600 text-sm mt-2">Kopioi, liitä omaan Facebookiin tai LinkedIniin. Yksi postaus viikossa riittää.</p>
+        </div>
+
+        <section class="mt-4 bg-white border-2 border-violet-200 rounded-3xl p-6">
+            <h2 class="font-bold text-lg">Facebook / LinkedIn (suositus)</h2>
+            <p class="text-xs text-slate-500 mt-1">Henkilökohtainen profiili tai ryhmäpostaus</p>
+            <pre id="post-fb" class="mt-4 p-4 bg-slate-50 rounded-2xl text-sm whitespace-pre-wrap leading-relaxed">Laskin äsken paljonko sivutuloa voisi realistisesti tulla töiden ohessa.
+
+Tulos yllätti — ei satoja tuhansia heti, mutta selkeä polku eteenpäin:
+→ affiliate
+→ pieni digituote
+→ tai blogi
+
+Tein ilmaisen 7 päivän oppaan + laskurin, jos haluat kokeilla itse:
+https://www.sivuhustle.fi/#ilmainen-opas
+
+Ei spam-listaa — yksi opas sähköpostiin ja valmista.
+
+#sivutulot #yrittäjyys #freelance</pre>
+            <button type="button" onclick="copyBlock('post-fb')" class="mt-3 w-full py-2.5 bg-violet-600 hover:bg-violet-700 text-white text-sm font-semibold rounded-xl">Kopioi Facebook/LinkedIn</button>
+        </section>
+
+        <section class="mt-4 bg-white border rounded-3xl p-6">
+            <h2 class="font-bold text-lg">Lyhyempi versio (tarinan jatko)</h2>
+            <pre id="post-short" class="mt-4 p-4 bg-slate-50 rounded-2xl text-sm whitespace-pre-wrap leading-relaxed">Töiden ohessa sivutuloa? Löysin ilmaisen laskurin + 7 pv oppaan:
+https://www.sivuhustle.fi/#ilmainen-opas
+
+Kokeilin itse — realistisemmat luvut kuin "tienaa 10k kuukaudessa" -videot.</pre>
+            <button type="button" onclick="copyBlock('post-short')" class="mt-3 w-full py-2.5 border text-sm font-semibold rounded-xl hover:bg-slate-50">Kopioi lyhyt</button>
+        </section>
+
+        <section class="mt-4 bg-white border rounded-3xl p-6">
+            <h2 class="font-bold text-lg">Facebook-ryhmät (valinnainen)</h2>
+            <p class="text-sm text-slate-600 mt-2">Etsi: "yrittäjyys suomi", "sivutulot", "freelance suomi". Lue ryhmän säännöt — älä spämmää. Vastaa johonkin keskusteluun ja mainitse opas luonnollisesti.</p>
+        </section>
+
+        <section class="mt-4 bg-amber-50 border border-amber-200 rounded-2xl p-5 text-sm text-amber-900">
+            <strong>Muista:</strong> Älä laita affiliate-linkkejä ensimmäiseen postaukseen — pelkkä ilmainen opas riittää. Affiliate tulee kun Hostinger-linkki on aktiivinen.
+        </section>
+    </div>
+    <script>
+        function copyBlock(id) {
+            var t = document.getElementById(id).textContent.trim();
+            navigator.clipboard.writeText(t).then(function () { alert('Kopioitu leikepöydälle! Liitä someen.'); });
+        }
+    </script>
+</body>
+</html>

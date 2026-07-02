@@ -11,6 +11,8 @@ create table if not exists public.leads (
   utm_campaign text,
   utm_content text,
   landing_page text,
+  email_day3_sent_at timestamptz,
+  email_day7_sent_at timestamptz,
   created_at timestamptz default now()
 );
 

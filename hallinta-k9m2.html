@@ -125,19 +125,30 @@
         </section>
 
         <section class="mt-4 bg-emerald-50 border-2 border-emerald-400 rounded-3xl p-6">
-            <h2 class="font-bold text-lg text-emerald-900">Sähköposti leadeille — API-avain asetettu</h2>
-            <p class="text-sm text-emerald-900/80 mt-1"><strong>sivuhustle.fi vahvistettu Resendissä.</strong> Lähettäjä: <code>asiakaspalvelu@sivuhustle.fi</code> — toimii kaikille osoitteille.</p>
+            <h2 class="font-bold text-lg text-emerald-900">Sähköposti leadeille — toimii</h2>
+            <p class="text-sm text-emerald-900/80 mt-1">Lähettäjä: <code>asiakaspalvelu@sivuhustle.fi</code>. Sarja: <strong>päivä 0</strong> (tervetuloa) → <strong>päivä 3</strong> (3 askelta) → <strong>päivä 7</strong> (Pro-tarjous).</p>
+        </section>
+
+        <section class="mt-4 bg-violet-50 border-2 border-violet-400 rounded-3xl p-6">
+            <h2 class="font-bold text-lg text-violet-900">Sähköpostisarja — aktivoi kerran (5 min)</h2>
+            <p class="text-sm text-violet-900/80 mt-1">Edge Function <code>process-lead-followups</code> on deployattu. Tarvitsee SQL + päivittäisen ajastuksen.</p>
             <ol class="text-sm text-slate-700 mt-4 space-y-2 list-decimal list-inside">
-                <li>Testaa ilmainen opas -lomake millä tahansa sähköpostilla</li>
-                <li>Testaa kirjautumislinkki samalla tavalla</li>
-                <li>Tarkista roskaposti jos viesti ei näy heti</li>
+                <li><a href="https://supabase.com/dashboard/project/zjpvxacinryojpqwdrti/sql/new" class="text-emerald-600 font-semibold" target="_blank" rel="noopener">SQL Editor</a> → kopioi alla oleva SQL → <strong>Run</strong></li>
+                <li>Varmista secret: <code>CRON_SECRET</code> (katso Grok-chatista tai luo uusi)</li>
+                <li>Ajasta päivittäin klo 9:00: <a href="https://cron-job.org" class="text-emerald-600 font-semibold" target="_blank" rel="noopener">cron-job.org</a> (ilmainen) → POST osoitteeseen:<br>
+                    <code class="block mt-1 bg-white p-2 rounded-lg text-xs border break-all">https://zjpvxacinryojpqwdrti.supabase.co/functions/v1/process-lead-followups</code>
+                    Header: <code>X-Cron-Secret: [sama kuin CRON_SECRET]</code></li>
             </ol>
-            <p class="text-xs text-amber-800 bg-amber-50 border border-amber-200 rounded-xl p-3 mt-3"><strong>Turvallisuus:</strong> Jos API-avain jaettiin chatissa, luo Resendissä uusi avain ja poista vanha.</p>
+            <button type="button" onclick="copyFollowupSql()" class="mt-4 px-4 py-2 bg-violet-600 hover:bg-violet-700 text-white text-sm font-semibold rounded-xl">Kopioi followup-SQL</button>
         </section>
 
         <section class="mt-4 bg-white border rounded-3xl p-6">
-            <h2 class="font-bold text-lg">Affiliate</h2>
-            <p class="text-sm text-slate-600 mt-1"><a href="affiliate-liity.html" class="text-emerald-600 font-semibold">affiliate-liity.html</a> → hae ohjelmat → liitä linkit config.js:ään</p>
+            <h2 class="font-bold text-lg">Affiliate + some</h2>
+            <ul class="text-sm text-slate-600 mt-2 space-y-2">
+                <li>→ <a href="hostinger-hakemus.html" class="text-emerald-600 font-semibold">hostinger-hakemus.html</a> (tee ensin)</li>
+                <li>→ <a href="affiliate-liity.html" class="text-emerald-600 font-semibold">affiliate-liity.html</a> (muut ohjelmat)</li>
+                <li>→ <a href="somepostaus.html" class="text-emerald-600 font-semibold">somepostaus.html</a> (kopioi postaus)</li>
+            </ul>
         </section>
 
         <div class="mt-8 flex flex-col sm:flex-row gap-3">
@@ -177,9 +188,26 @@ create policy "No public read on leads"
   to anon, authenticated
   using (false);`;
 
+        var FOLLOWUP_SQL = `alter table public.leads add column if not exists email_day3_sent_at timestamptz;
+alter table public.leads add column if not exists email_day7_sent_at timestamptz;
+
+create index if not exists leads_followup_day3_idx
+  on public.leads (created_at)
+  where email_day3_sent_at is null;
+
+create index if not exists leads_followup_day7_idx
+  on public.leads (created_at)
+  where email_day7_sent_at is null;`;
+
         function copyLeadsSql() {
             navigator.clipboard.writeText(LEADS_SQL.trim()).then(function () {
                 alert('SQL kopioitu! Liitä Supabase SQL Editoriin ja paina Run.');
+            });
+        }
+
+        function copyFollowupSql() {
+            navigator.clipboard.writeText(FOLLOWUP_SQL.trim()).then(function () {
+                alert('Followup-SQL kopioitu! Liitä SQL Editoriin ja paina Run.');
             });
         }
     </script>
